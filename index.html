@@ -22,11 +22,11 @@
                 <img class="home__header-logo-travel" src="./assets/logo-travel.svg" alt="Travel">
             </div>
             <div class="home__header-links-wrapper">
-                <a class="home__header-link link" href="">О компании</a>
-                <a class="home__header-link link" href="">Услуги</a>
-                <a class="home__header-link link" href="">Корпоративным клиентам</a>
-                <a class="home__header-link link" href="">Туристическим агентствам</a>
-                <a class="home__header-link link" href="">Контакты</a>
+                <a class="home__header-link link" href="#company" href="">О компании</a>
+                <a class="home__header-link link" href="#services">Услуги</a>
+                <a class="home__header-link link" href="#clients">Корпоративным клиентам</a>
+                <a class="home__header-link link" href="#agency">Туристическим агентствам</a>
+                <a class="home__header-link link" href="#footer">Контакты</a>
             </div>
         </header>
 		<div class="home__container">
@@ -38,14 +38,15 @@
             </div>
             <!-- Новый текст (скрыт изначально) -->
             <div class="home__description-new" id="newText">
-                <div class="home__title-new">Открой новые<br>горизонты с Алеан</div>
-                <div class="home__text-new">Ваш надежный партнер по групповым<br>и корпоративным турам</div>
+                <div class="home__title-new">Добро пожаловать в Алеан!</div>
+                <div class="home__text-new">Наша компания — крупнейший российский туроператор, оказывающий услуги: групповые туры, Business travel, MICE — для корпоративных клиентов и турагентств.</div>
+				<div class="home__text-new">Мы обеспечим высокий уровень сервиса и индивидуальный подход к каждому клиенту.</div>
             </div>
         </div>
     </div>
 
 
-    <div class="intro">
+    <!-- <div class="intro">
         <div class="intro__container">
             <div class="intro__wrapper">
                 <img class="intro__img" src="assets/intro-img.png" alt="Интро">
@@ -56,10 +57,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
-	<div class="company">
+	<div class="company" id="company">
 		<div class="company__title title">О компании</div>
 		<div class="company__wrapper wrapper">
 			<div class="company__item">
@@ -167,7 +168,7 @@
 	</div>
 
 
-	<div class="services">
+	<div class="services" id="services">
 		<div class="services__title title">Услуги</div>
 		<div class="services__wrapper wrapper">
 			<div class="services__item">
@@ -264,18 +265,17 @@
 						<div class="services__item-subtitle item-subtitle">Групповые экскурсии для школьников</div>
 						<div class="services__item-text-up description">Мы организовываем увлекательные путешествия для детей, уделяя особое внимание безопасности, качественному образованию и положительным эмоциям. Предлагаем туры в Москву, Санкт-Петербург и другие города с посещением главных достопримечательностей в сопровождении опытных педагогов-гидов. Организовываем комфортный транспорт и питание.</div>
 					</div>
-					<div class="services__link-wrapper link-wrapper">
-						<a class="blue-link link" href="">Полный перечень групповых экскурсий </a>
+					<a class="services__link-wrapper link-wrapper link" href="https://www.alean.ru/page/advanced_services/?label=4" target="_blank">
+						<div class="blue-link link" href="">Полный перечень групповых экскурсий </div>
 						<img class="link-arrow" src="assets/arrow.svg" alt="">
-					</div>
+					</a>
 				</div>
 			</div>
-			<img class="line" src="assets/line.svg" alt="">
 		</div>
 	</div>
 	
 	
-	<div class="clients">
+	<div class="clients" id="clients">
 		<div class="clients__title title">Корпоративным<br>клиентам</div>
 		<div class="clients__wrapper wrapper">
 			<div class="clients__items-wrapper">
@@ -372,16 +372,16 @@
 	</div>
 
 
-	<div class="agency">
+	<div class="agency" id="agency">
 		<div class="agency__title title">Туристическим агентствам</div>
 		<div class="agency__wrapper wrapper">
 			<div class="agency__text-and-card-wrapper">
 				<div class="agency__left">
 					<div class="agency__left-text description">Компания «Алеан» приносит значительную пользу туристическим агентствам при обслуживании корпоративных клиентов, поскольку обеспечивает уникальные возможности для эффективного взаимодействия и развития взаимовыгодного партнерства.</div>
-					<div class="link-wrapper">
-						<a class="blue-link link" href="">Узнать подробнее</a>
+					<a class="link-wrapper link" href="https://www.alean.ru/agency/page/sotrudnichestvo/?label=kak_nachat_sotrudnichestvo_ta" target="_blank">
+						<div class="blue-link">Узнать подробнее</div>
 						<img class="link-arrow" src="assets/arrow.svg" alt="">
-					</div>
+					</a>
 				</div>
 				<div class="agency__right">
 					<div class="agency__card-no-border">
@@ -494,8 +494,8 @@
 	</div>
 
 
-	<div class="footer">
-		<!-- <img class="home__img-heart" id="heart" src="assets/heart-footer.png" alt="Сердце"> -->
+	<div class="footer" id="footer">
+		<img class="footer__img-heart" src="assets/heart-footer.png" alt="Сердце">
 		<div class="footer__wrapper">
 			<div class="footer__title">Контакты</div>
 			<div class="footer__items-wrapper">
@@ -513,6 +513,38 @@
 	</div>
 
 <script src="script.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m, e, t, r, i, k, a) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+            if (document.scripts[j].src === r) {
+                return;
+            }
+        }
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=103734013', 'ym');
+
+    ym(103734013, 'init', {
+        ssr: true,
+        webvisor: true,
+        clickmap: true,
+        ecommerce: "dataLayer",
+        accurateTrackBounce: true,
+        trackLinks: true
+    });
+</script>
+
+<noscript>
+    <div>
+        <img src="https://mc.yandex.ru/watch/103734013" style="position: absolute; left: -9999px;" alt="" />
+    </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
 
 </body>
 </html>

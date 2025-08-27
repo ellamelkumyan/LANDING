@@ -93,12 +93,13 @@
   
   /* Основные цвета */
   --primary-default: #7da6f7;
-  --primary-hover: #9ebdf9;
-  --primary-pressed: #5b8ff5;
+  /* --primary-hover: #9ebdf9; */
+  --primary-hover: #5b8ff5;
   --primary-light: #1b2b4a;
   --primary-tonal: #203256;
   --primary-on-default: #073281;
   --primary-blue: #2B6EF2;
+  --primary-pressed: #0d53dd;
   
   /* Статусы */
   --status-green: #33b960;

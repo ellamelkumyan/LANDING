@@ -7,8 +7,113 @@
 	<link rel="stylesheet" href="./style.css">
 	<link rel="stylesheet" href="./variables.css">
 	<link rel="stylesheet" href="./reset.css">
+	<link rel="stylesheet" href="./forms.css">
 </head>
 <body>
+
+	<div class="form" id="form_services">
+
+		<div class="form_fon">
+			<picture class="form_fon_picture">
+				<source srcset="./assets/lugage.png" />
+				<img class="form_fon_picture_img"
+					src="./assets/lugage.png"
+					alt=""
+					loading="lazy"
+				/>
+			</picture>
+		</div>
+
+		<div class="form_box">
+			<span class="form_box_closed link services_closed"></span>
+
+			<div class="form_content">
+
+				<div class="form_content_title">
+					<div class="form_content_title_description">Business travel</div>
+					<div class="form_content_title_text">Рассчитайте стоимость услуг</div>
+				</div>
+
+				<div class="form_content_box">
+
+					<div class="form_input">
+						<label>
+							<input type="text">
+							<span class="form_input_placeholder">Период проживания</span>
+						</label>
+					</div>
+
+					<div class="form_input">
+						<label>
+							<input type="text">
+							<span class="form_input_placeholder">Город отравления</span>
+						</label>
+					</div>
+
+					<div class="form_input">
+						<label>
+							<input type="text">
+							<span class="form_input_placeholder">Город прибытия</span>
+						</label>
+					</div>
+
+					<div class="form_content_box_description">Типы услуг</div>
+
+					<div class="form_input form_input_margin">
+						<label>
+							<input type="text">
+							<span class="form_input_placeholder">Добавить</span>
+						</label>
+					</div>
+
+					<div class="form_input">
+						<label>
+							<input type="text">
+							<span class="form_input_placeholder">Имя</span>
+						</label>
+					</div>
+
+					<div class="form_input">
+						<label>
+							<input type="text">
+							<span class="form_input_placeholder">Телефон</span>
+						</label>
+					</div>
+
+					<div class="form_input">
+						<label>
+							<input type="text">
+							<span class="form_input_placeholder">E-mail</span>
+						</label>
+					</div>
+
+					<div class="form_input">
+						<label>
+							<input type="text">
+							<span class="form_input_placeholder">Название компании</span>
+						</label>
+					</div>
+
+					<div class="form_input">
+						<label>
+							<input type="text">
+							<span class="form_input_placeholder">Комментарий</span>
+						</label>
+					</div>
+
+					<div class="form_button">
+						<button class="form_input_btn form_button_transparent link services_closed">Отмена</button>
+						<button class="form_input_btn blue-button link">Отправить</button>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
 	<div class="home" id="homeSection">
 		<!-- Слайдер -->
 		 <div class="slider" id="slider">
@@ -180,7 +285,7 @@
 					<div class="services__item-text-down description">Наши агенты могут предложить как бюджетные авиалинии и маршруты с удобными стыковками, так и обеспечить высочайший уровень комфорта для VIP-клиентов, могут фокусироваться на отелях среднего уровня с необходимым набором услуг либо организовать сложные групповые размещения. </div>
 				</div>
 				<div class="services__btn-wrapper">
-					<a class="services__btn link blue-button" href="">Рассчитайте стоимость услуг</a>
+					<button class="services__btn link blue-button">Рассчитайте стоимость услуг</button>
 				</div>
 			</div>
 			<div class="services__item-with-img">
@@ -201,7 +306,7 @@
 						<div class="services__item-text-down description">Специалисты нашей команды готовы организовать мероприятие под ключ.</div>
 					</div>
 					<div class="services__btn-wrapper">
-						<a class="services__btn link blue-button" href="">Рассчитайте стоимость услуг</a>
+						<button class="services__btn link blue-button">Рассчитайте стоимость услуг</button>
 					</div>
 				</div>
 			</div>
@@ -216,7 +321,7 @@
 						<div class="services__item-text-down description">Опыт успешной работы с ведущими видами спорта России и стран СНГ. </div>
 					</div>
 					<div class="services__btn-wrapper">
-						<a class="services__btn link blue-button" href="">Рассчитайте стоимость услуг</a>
+						<button class="services__btn link blue-button">Рассчитайте стоимость услуг</button>
 					</div>
 				</div>
 				<div class="services__item-with-img">
@@ -236,7 +341,7 @@
 						<div class="services__item-text-down description">Онлайн-сервис личного кабинета упрощает подбор подходящего варианта санатория и гарантирует быструю организацию бронирования без участия посредников.</div>
 					</div>
 					<div class="services__btn-wrapper">
-						<a class="services__btn link blue-button" href="">Рассчитайте стоимость услуг</a>
+						<button class="services__btn link blue-button">Рассчитайте стоимость услуг</button>
 					</div>
 				</div>
 			</div>
@@ -273,8 +378,8 @@
 			</div>
 		</div>
 	</div>
-	
-	
+
+
 	<div class="clients" id="clients">
 		<div class="clients__title title">Корпоративным<br>клиентам</div>
 		<div class="clients__wrapper wrapper">

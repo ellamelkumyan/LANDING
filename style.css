@@ -1145,6 +1145,7 @@ body {
 	z-index: 0;
 	display: flex;
 	flex-direction: column;
+	overflow: hidden
 }
 
 .footer::before {
@@ -1207,11 +1208,17 @@ body {
 }
 
 .footer__mail-link {
-	color: var(--text-link);
 	font-weight: 600;
-	font-family: "Montserrat", serif;
 	font-size: var(--text-L);
 	line-height: var(--text-L-line);
+}
+
+.footer__mail-link:hover {
+	color: var(--primary-hover)
+}
+
+.footer__mail-link:active {
+	color: var(--primary-pressed)
 }
 
 .footer__phone-link {
@@ -1297,15 +1304,22 @@ body {
 	}
 
 	.company__grid-item {
-		border-radius: var(--radius-m)
+		border-radius: var(--radius-m);
+		padding: 12px 12px 16px 12px;
 	}
 
 	.company__grid-item-no-border {
-		border-radius: var(--radius-m)
+		border-radius: var(--radius-m);
+		padding: 12px 12px 16px 12px;
 	}
 
 	.company__grid-item-no-border::after {
-		border-radius: var(--radius-m)
+		border-radius: var(--radius-m);
+		padding: 12px 12px 16px 12px;
+	}
+
+	.company__logo {
+		margin-bottom: 12px;
 	}
 
 	.services__text-wrapper {
@@ -1366,16 +1380,19 @@ body {
 	.clients__card-up {
 		padding: 12px 12px 12px 16px;
 		border-radius: var(--radius-m);
+		gap: 12px;
 	}
 
 	.clients__card-up-no-border {
 		padding: 12px 12px 12px 16px;
 		border-radius: var(--radius-m);
+		gap: 12px;
 	}
 
 	.clients__card-down {
 		padding: 12px 12px 12px 16px;
 		border-radius: var(--radius-m);
+		gap: 12px;
 	}
 
 	.clients__card-up-no-border::after {
@@ -1397,10 +1414,12 @@ body {
 
 	.agency__card {
 		padding: 12px 12px 12px 16px;
+		gap: 12px;
 	}
 
 	.agency__card-no-border {
 		padding: 12px 12px 12px 16px;
+		gap: 12px;
 	}
 
 	.start__card::before {
@@ -1409,11 +1428,13 @@ body {
 
 	.start__card {
 		padding: 12px 12px 16px 12px;
+		gap: 12px;
 	}
 
 	.start__card-white {
 		border-radius: var(--padding-radius-s);
 		padding: 12px 12px 16px 12px;
+		gap: 12px;
 	}
 
 	.start__title {
@@ -1441,12 +1462,14 @@ body {
 	.questions__item {
 		padding: 12px 12px 16px 12px;
 		border-radius: var(--padding-radius-s);
+		gap: 12px;
 
 	}
 
 	.questions__item-no-border {
 		padding: 12px 12px 16px 12px;
 		border-radius: var(--padding-radius-s);
+		gap: 12px;
 	}
 
 	.questions__item-no-border::after {
@@ -1468,6 +1491,18 @@ body {
 	.footer__btn {
 		padding: 14px 80.5px;
 	}
+
+	.footer__items-wrapper {
+		gap: 12px;
+	}
+
+	.footer__wrapper {
+		gap: 12px;
+	}
+
+	.footer__btn {
+		margin-top: 8px;
+	}
 }
 
 @media (max-width: 600px) {
@@ -1484,15 +1519,22 @@ body {
 	}
 
 	.company__grid-item {
-		border-radius: var(--radius-m)
+		border-radius: var(--radius-m);
+		padding: 12px 12px 16px 12px;
 	}
 
 	.company__grid-item-no-border {
-		border-radius: var(--radius-m)
+		border-radius: var(--radius-m);
+		padding: 12px 12px 16px 12px;
 	}
 
 	.company__grid-item-no-border::after {
-		border-radius: var(--radius-m)
+		border-radius: var(--radius-m);
+		padding: 12px 12px 16px 12px;
+	}
+
+	.company__logo {
+		margin-bottom: 12px;
 	}
 
 	.services__item {
@@ -1599,16 +1641,19 @@ body {
 	.clients__card-up {
 		padding: 12px 12px 12px 16px;
 		border-radius: var(--radius-m);
+		gap: 12px;
 	}
 
 	.clients__card-up-no-border {
 		padding: 12px 12px 12px 16px;
 		border-radius: var(--radius-m);
+		gap: 12px;
 	}
 
 	.clients__card-down {
 		padding: 12px 12px 12px 16px;
 		border-radius: var(--radius-m);
+		gap: 12px;
 	}
 
 	.clients__card-up-no-border::after {
@@ -1628,10 +1673,18 @@ body {
 
 	.agency__card {
 		padding: 12px 12px 12px 16px;
+		gap: 12px;
+		border-radius: var(--radius-m);
 	}
 
 	.agency__card-no-border {
 		padding: 12px 12px 12px 16px;
+		gap: 12px;
+		border-radius: var(--radius-m);
+	}
+
+	.agency__card-no-border::after {
+		border-radius: var(--radius-m);
 	}
 
 	.agency {
@@ -1650,6 +1703,7 @@ body {
 	.start__card-white {
 		padding: 12px 12px 16px 12px;
 		border-radius: var(--padding-radius-s);
+		gap: 12px;
 	}
 
 	.start__card::before {
@@ -1658,6 +1712,7 @@ body {
 
 	.start__card {
 		padding: 12px 12px 16px 12px;
+		gap: 12px;
 	}
 
 	.start__container {
@@ -1671,11 +1726,13 @@ body {
 	.questions__item {
 		padding: 12px 12px 16px 12px;
 		border-radius: var(--padding-radius-s);
+		gap: 12px;
 	}
 
 	.questions__item-no-border {
 		padding: 12px 12px 16px 12px;
 		border-radius: var(--padding-radius-s);
+		gap: 12px;
 	}
 
 	.questions__item-no-border::after {
@@ -1686,20 +1743,20 @@ body {
 		margin: 24px 0;
 	}
 
-	.agency__card {
-		border-radius: var(--radius-m);
+	.footer__btn {
+		padding: 14px 44.5px;
 	}
 
-	.agency__card-no-border {
-		border-radius: var(--radius-m);
+	.footer__items-wrapper {
+		gap: 12px;
 	}
 
-	.agency__card-no-border::after {
-		border-radius: var(--radius-m);
+	.footer__wrapper {
+		gap: 12px;
 	}
 
 	.footer__btn {
-		padding: 14px 44.5px;
+		margin-top: 4px;
 	}
 
 
@@ -1775,20 +1832,41 @@ body {
 		font-size: var(--text-S);
 	}
 
+	.clients__card-up {
+		gap: 16px;
+		padding: 16px 16px 24px 16px;
+	}
+
+	.clients__card-up-no-border {
+		gap: 16px;
+		padding: 16px 16px 24px 16px;
+	}
+
+	.clients__card-down {
+		gap: 16px;
+		padding: 16px 16px 24px 16px;
+	}
+
 	.agency__text-and-card-wrapper {
 		gap: 40px;
 	}
 
 	.agency__card {
 		border-radius: var(--radius-l);
+		padding: 16px 16px 24px 16px;
+		gap: 16px;
 	}
 
 	.agency__card-no-border {
 		border-radius: var(--radius-l);
+		padding: 16px 16px 24px 16px;
+		gap: 16px;
 	}
 
 	.agency__card-no-border::after {
 		border-radius: var(--radius-l);
+		padding: 16px 16px 24px 16px;
+		gap: 16px;
 	}
 
 	.start__title {
@@ -1802,10 +1880,12 @@ body {
 
 	.start__card {
 		padding: 16px 16px 24px 16px;
+		gap: 16px;
 	}
 
 	.start__card-white {
 		padding: 16px 16px 24px 16px;
+		gap: 16px;
 	}
 
 	.start__container {
@@ -1816,20 +1896,52 @@ body {
 		gap: 16px;
 	}
 
+	.questions__item {
+		padding: 16px 16px 24px 16px;
+		gap: 16px;
+	}
+
+	.questions__item-no-border {
+		padding: 16px 16px 24px 16px;
+		gap: 16px;
+	}
+
 	.company__grid-item {
-		border-radius: var(--radius-l)
+		border-radius: var(--radius-l);
+		gap: 16px;
+		padding: 16px 16px 24px 16px;
 	}
 
 	.company__grid-item-no-border {
-		border-radius: var(--radius-l)
+		border-radius: var(--radius-l);
+		gap: 16px;
+		padding: 16px 16px 24px 16px;
 	}
 
 	.company__grid-item-no-border::after {
-		border-radius: var(--radius-l)
+		border-radius: var(--radius-l);
+		gap: 16px;
+		padding: 16px 16px 24px 16px;
 	}
 
 	.footer__btn {
 		padding: 14px 84.5px;
+	}
+
+	.company__logo {
+		margin-bottom: 16px;
+	}
+
+	.footer__items-wrapper {
+		gap: 16px;
+	}
+
+	.footer__wrapper {
+		gap: 16px;
+	}
+
+	.footer__btn {
+		margin-top: 8px;
 	}
 }
 

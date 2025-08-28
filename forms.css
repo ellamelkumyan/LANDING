@@ -1,5 +1,6 @@
 :root {
-    --form-border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+    --form-right-border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+    --form-left-border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
     --form-fon-width: 320px;
     --form-box-width: 600px;
 
@@ -7,6 +8,7 @@
     --form-content-padding: 40px;
 
     --form-input-height: 52px;
+    --form-textarea-height: 108px;
     --form-input-padding: 16px;
     --form-input-margin-bottom: 40px;
 }
@@ -17,10 +19,18 @@
     z-index: 100;
 
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    align-items: flex-start;
 
     background: rgba(0,0,0,.7);
+}
+
+.form.right {
+    justify-content: flex-end;
+}
+
+
+.form.left {
+    justify-content: flex-start;
 }
 
 /* fon */
@@ -31,7 +41,15 @@
     width: 100%;
     max-width: var(--form-fon-width);
     overflow: hidden;
-    border-radius: var(--form-border-radius);
+}
+
+.form.right .form_fon {
+    border-radius: var(--form-right-border-radius);
+}
+
+.form.left .form_fon {
+    order: 2;
+    border-radius: var(--form-left-border-radius);
 }
 
 .form_fon_picture {
@@ -58,15 +76,24 @@
     width: 100%;
     max-width: var(--form-box-width);
 
-    margin-left: -24px;
-
     background: var(--bg-surface);
-    border-radius: var(--form-border-radius);
+
     overflow: auto;
 }
 
+.form.right .form_box {
+    margin-left: -24px;
+    border-radius: var(--form-right-border-radius);
+}
+
+.form.left .form_box {
+    order: 1;
+    margin-right: -24px;
+    border-radius: var(--form-left-border-radius);
+}
+
 .form_box_closed {
-    position: fixed;
+    position: absolute;
     z-index: 2;
     top: 0;
     right: 0;
@@ -84,6 +111,12 @@
     width: 24px;
     height: 24px;
     background: url("./assets/close.svg") center no-repeat;
+    zoom: 1;
+    transition: zoom .3s ease-in-out;
+}
+
+.form_box_closed:hover:before {
+    zoom: 1.2;
 }
 
 /* content */
@@ -114,7 +147,7 @@
 
 .form_content_title_description {
     font-size: var(--text-caption);
-    line-height: var(--text-caption);
+    line-height: var(--text-caption-line);
     color: var(--primary-default);
 
     padding-bottom: 8px;
@@ -139,10 +172,9 @@
     margin-bottom: var(--form-input-padding);
 }
 
-.form_input {
+.form_input,
+.form_textarea {
     position: relative;
-
-    height: var(--form-input-height);
 
     border: 1px solid var(--border-light);
     border-radius: var(--input-radius);
@@ -152,9 +184,17 @@
     margin-bottom: var(--form-input-padding);
 }
 
-.form_input input {
-    width: 100%;
+.form_input {
     height: var(--form-input-height);
+}
+
+.form_textarea {
+    min-height: var(--form-textarea-height);
+}
+
+.form_input input,
+.form_textarea textarea {
+    width: 100%;
     box-sizing: border-box;
 
     background: transparent;
@@ -162,7 +202,6 @@
     border: 0;
     outline: none;
     margin: 0;
-    padding: 0 var(--form-input-padding);
     border-radius: var(--input-radius);
 
     color: var(--text-primary);
@@ -172,41 +211,68 @@
     font-weight: 500;
 }
 
-.form_input_placeholder {
+.form_input input {
+    height: var(--form-input-height);
+    padding: 0 var(--form-input-padding);
+}
+
+.form_textarea textarea {
+    min-height: var(--form-textarea-height);
+    padding: var(--form-input-padding);
+    resize: vertical;
+}
+
+.form_input_placeholder,
+.form_textarea_placeholder {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    height: var(--form-input-height);
-    padding: 0 var(--form-input-padding);
+    bottom: 0;
 
     background: var(--bg-surface);
 
-    display: flex;
-    align-items: center;
-
     pointer-events: none;
+
+    border-radius: var(--input-radius);
+
+    transition: top .1s ease-in-out;
+}
+
+.form_input_placeholder_text,
+.form_textarea_placeholder_text {
+    height: var(--form-input-height);
+    padding: 0 var(--form-input-padding);
+
+    display: inline-flex;
+    align-items: center;
 
     font-size: var(--text-S);
     line-height: var(--text-S-line);
     color: var(--text-ordinary);
     font-weight: 500;
 
-    border-radius: var(--input-radius);
-
-    transition: all .1s ease-in-out;
+    transition: font-size .1s ease-in-out, line-height .1s ease-in-out, font-weight .1s ease-in-out;
 }
 
-.form_input input:focus ~ .form_input_placeholder {
+.form_input input:focus ~ .form_input_placeholder,
+.form_textarea textarea:focus ~ .form_textarea_placeholder,
+.form_input input.is-value ~ .form_input_placeholder,
+.form_textarea textarea.is-value ~ .form_textarea_placeholder {
     left: 12px;
-    right: auto;
     top: -8px;
-    height: 16px;
+    bottom: auto;
+}
+
+.form_input input:focus ~ .form_input_placeholder .form_input_placeholder_text,
+.form_textarea textarea:focus ~ .form_textarea_placeholder .form_textarea_placeholder_text,
+.form_input input.is-value ~ .form_input_placeholder .form_input_placeholder_text,
+.form_textarea textarea.is-value ~ .form_textarea_placeholder .form_textarea_placeholder_text {
     font-size: var(--text-XS);
     line-height: var(--text-XS-line);
     font-weight: 600;
     padding: 0 4px;
     border-radius: 0;
+    height: 16px;
 }
 
 .form_input_margin {
@@ -229,6 +295,10 @@
     border-radius: var(--radius-l);
     background: transparent;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     font-family: "Montserrat", serif;
     color: var(--text-fixed);
     font-weight: 500;
@@ -246,6 +316,11 @@
     background-color: transparent;
 }
 
+/* hidden */
+.form_hidden {
+    display: none;
+}
+
 
 /* animation */
 .form.animation.open {
@@ -261,37 +336,73 @@
     display: none;
 }
 
-.form.animation.open .form_fon {
+
+/* right */
+.form.right.animation.open .form_fon {
     right: 0;
-    animation: formAnimation .8s ease-in-out;
+    animation: formAnimationRight .8s ease-in-out;
 }
 
-.form.animation:not(.open) .form_fon {
+.form.right.animation:not(.open) .form_fon {
     right: -100%;
-    animation: formAnimationReverse .6s ease-in-out;
+    animation: formAnimationRightReverse .6s ease-in-out;
 }
 
 
-.form.animation.open .form_box {
+.form.right.animation.open .form_box {
     right: 0;
-    animation: formAnimation .6s ease-in-out;
+    animation: formAnimationRight .6s ease-in-out;
 }
 
 
-.form.animation:not(.open) .form_box {
+.form.right.animation:not(.open) .form_box {
     right: -100%;
-    animation: formAnimationReverse .8s ease-in-out;
+    animation: formAnimationRightReverse .8s ease-in-out;
+}
+
+/* left */
+.form.left.animation.open .form_fon {
+    left: 0;
+    animation: formAnimationLeft .8s ease-in-out;
+}
+
+.form.left.animation:not(.open) .form_fon {
+    left: -100%;
+    animation: formAnimationLeftReverse .6s ease-in-out;
 }
 
 
-@keyframes formAnimation {
+.form.left.animation.open .form_box {
+    left: 0;
+    animation: formAnimationLeft .6s ease-in-out;
+}
+
+
+.form.left.animation:not(.open) .form_box {
+    left: -100%;
+    animation: formAnimationLeftReverse .8s ease-in-out;
+}
+
+
+@keyframes formAnimationRight {
     from { right: -100% }
     to { right: 0; }
 }
 
-@keyframes formAnimationReverse {
+@keyframes formAnimationRightReverse {
     from { right: 0}
     to { right: -100% ; }
+}
+
+
+@keyframes formAnimationLeft {
+    from { left: -100% }
+    to { left: 0; }
+}
+
+@keyframes formAnimationLeftReverse {
+    from { left: 0}
+    to { left: -100% ; }
 }
 
 @keyframes formVisibility {

@@ -13,102 +13,111 @@
 
 	<div class="form" id="form_services">
 
-		<div class="form_fon">
-			<picture class="form_fon_picture">
-				<source srcset="./assets/lugage.png" />
-				<img class="form_fon_picture_img"
-					src="./assets/lugage.png"
-					alt=""
-					loading="lazy"
-				/>
-			</picture>
-		</div>
+		<div class="form_fon" id="form_fon"></div>
 
 		<div class="form_box">
-			<span class="form_box_closed link services_closed"></span>
+			<span class="form_box_closed link services_closed" onclick="closedForm()"></span>
 
-			<div class="form_content">
+			<form class="form_content">
 
 				<div class="form_content_title">
-					<div class="form_content_title_description">Business travel</div>
-					<div class="form_content_title_text">Рассчитайте стоимость услуг</div>
+					<div class="form_content_title_description" id="form_description"></div>
+					<div class="form_content_title_text" id="form_title"></div>
 				</div>
 
 				<div class="form_content_box">
 
-					<div class="form_input">
+					<div class="form_input form_show" data-show='["services"]'>
 						<label>
 							<input type="text">
-							<span class="form_input_placeholder">Период проживания</span>
+							<span class="form_input_placeholder">
+								<span class="form_input_placeholder_text">Период проживания</span>
+							</span>
 						</label>
 					</div>
 
-					<div class="form_input">
+					<div class="form_input form_show" data-show='["services"]'>
 						<label>
 							<input type="text">
-							<span class="form_input_placeholder">Город отравления</span>
+							<span class="form_input_placeholder">
+								<span class="form_input_placeholder_text">Город отравления</span>
+							</span>
 						</label>
 					</div>
 
-					<div class="form_input">
+					<div class="form_input form_show" data-show='["services"]'>
 						<label>
 							<input type="text">
-							<span class="form_input_placeholder">Город прибытия</span>
+							<span class="form_input_placeholder">
+								<span class="form_input_placeholder_text">Город прибытия</span>
+							</span>
 						</label>
 					</div>
 
-					<div class="form_content_box_description">Типы услуг</div>
+					<div class="form_content_box_description form_show" data-show='["services"]'>Типы услуг</div>
 
-					<div class="form_input form_input_margin">
+					<div class="form_input form_input_margin form_show" data-show='["services"]'>
 						<label>
 							<input type="text">
-							<span class="form_input_placeholder">Добавить</span>
+							<span class="form_input_placeholder">
+								<span class="form_input_placeholder_text">Добавить</span>
+							</span>
 						</label>
 					</div>
 
-					<div class="form_input">
+					<div class="form_input form_show" data-show='["services", "clients"]'>
 						<label>
 							<input type="text">
-							<span class="form_input_placeholder">Имя</span>
+							<span class="form_input_placeholder">
+								<span class="form_input_placeholder_text">Имя</span>
+							</span>
 						</label>
 					</div>
 
-					<div class="form_input">
+					<div class="form_input form_show" data-show='["services", "clients"]'>
 						<label>
 							<input type="text">
-							<span class="form_input_placeholder">Телефон</span>
+							<span class="form_input_placeholder">
+								<span class="form_input_placeholder_text">Телефон</span>
+							</span>
 						</label>
 					</div>
 
-					<div class="form_input">
+					<div class="form_input form_show" data-show='["services", "clients"]'>
 						<label>
 							<input type="text">
-							<span class="form_input_placeholder">E-mail</span>
+							<span class="form_input_placeholder">
+								<span class="form_input_placeholder_text">E-mail</span>
+							</span>
 						</label>
 					</div>
 
-					<div class="form_input">
+					<div class="form_input form_input_margin form_show" data-show='["services", "clients"]'>
 						<label>
 							<input type="text">
-							<span class="form_input_placeholder">Название компании</span>
+							<span class="form_input_placeholder">
+								<span class="form_input_placeholder_text">Название компании</span>
+							</span>
 						</label>
 					</div>
 
-					<div class="form_input">
+					<div class="form_textarea form_show" data-show='["services", "clients"]'>
 						<label>
-							<input type="text">
-							<span class="form_input_placeholder">Комментарий</span>
+							<textarea></textarea>
+							<span class="form_textarea_placeholder">
+								<span class="form_textarea_placeholder_text">Комментарий</span>
+							</span>
 						</label>
 					</div>
 
 					<div class="form_button">
-						<button class="form_input_btn form_button_transparent link services_closed">Отмена</button>
+						<span class="form_input_btn form_button_transparent link" onclick="closedForm()">Отмена</span>
 						<button class="form_input_btn blue-button link">Отправить</button>
 					</div>
 
 				</div>
 
-			</div>
+			</form>
 
 		</div>
 	</div>
@@ -285,7 +294,7 @@
 					<div class="services__item-text-down description">Наши агенты могут предложить как бюджетные авиалинии и маршруты с удобными стыковками, так и обеспечить высочайший уровень комфорта для VIP-клиентов, могут фокусироваться на отелях среднего уровня с необходимым набором услуг либо организовать сложные групповые размещения. </div>
 				</div>
 				<div class="services__btn-wrapper">
-					<button class="services__btn link blue-button">Рассчитайте стоимость услуг</button>
+					<button class="services__btn link blue-button" onclick="openForm('Business travel', 'services', 'lugage', 'right')">Рассчитайте стоимость услуг</button>
 				</div>
 			</div>
 			<div class="services__item-with-img">
@@ -306,7 +315,7 @@
 						<div class="services__item-text-down description">Специалисты нашей команды готовы организовать мероприятие под ключ.</div>
 					</div>
 					<div class="services__btn-wrapper">
-						<button class="services__btn link blue-button">Рассчитайте стоимость услуг</button>
+						<button class="services__btn link blue-button" onclick="openForm('MICE', 'services', 'mice', 'left')">Рассчитайте стоимость услуг</button>
 					</div>
 				</div>
 			</div>
@@ -321,7 +330,7 @@
 						<div class="services__item-text-down description">Опыт успешной работы с ведущими видами спорта России и стран СНГ. </div>
 					</div>
 					<div class="services__btn-wrapper">
-						<button class="services__btn link blue-button">Рассчитайте стоимость услуг</button>
+						<button class="services__btn link blue-button" onclick="openForm('Выездные спортивные сборы', 'services', 'sport', 'right')">Рассчитайте стоимость услуг</button>
 					</div>
 				</div>
 				<div class="services__item-with-img">
@@ -341,7 +350,7 @@
 						<div class="services__item-text-down description">Онлайн-сервис личного кабинета упрощает подбор подходящего варианта санатория и гарантирует быструю организацию бронирования без участия посредников.</div>
 					</div>
 					<div class="services__btn-wrapper">
-						<button class="services__btn link blue-button">Рассчитайте стоимость услуг</button>
+						<button class="services__btn link blue-button" onclick="openForm('Санаторно-курортные и оздоровительные мероприятия', 'services', 'health', 'left')">Рассчитайте стоимость услуг</button>
 					</div>
 				</div>
 			</div>
@@ -393,7 +402,7 @@
 							<div class="clients__item-text description">При этом вам также остается доступна возможность заказать любые нестандартные услуги посредством почты или телефона — заказы по ним вы увидите в своем личном кабинете.</div>
 						</div>
 						<div class="clients__item-up-button-wrapper">
-							<a class="clients__item-up-button blue-button link" href="">Запросить демо доступ</a>
+							<button class="clients__item-up-button blue-button link" onclick="openForm('', 'clients', 'clients', 'right')">Запросить демо доступ</button>
 						</div>
 						<div class="clients__link-wrapper link-wrapper">
 							<a class="blue-link link" href="">Войти в личный кабинет</a>
@@ -420,7 +429,7 @@
 									<div class="clients__card-title">Отправить заявку</div>
 									<div class="clients__card-up-description">Заявка направляется по электронной почте вашим тревел-координатором, либо непосредственно командируемым сотрудником, либо через специальную форму</div>
 									<div class="clients__down-button-wrapper">
-										<a class="clients__down-btn blue-button link" href="">Отправить заявку</a>
+										<button class="clients__down-btn blue-button link" onclick="openForm('', 'clients', 'clients', 'right')">Отправить заявку</button>
 									</div>
 								</div>
 							</div>
@@ -525,7 +534,7 @@
 					<div class="start__card-title-black">Отправить заявку</div>
 					<div class="start__card-description-black">Заявка направляется по электронной почте вашим тревел-координатором, либо непосредственно командируемым сотрудником, либо через специальную форму</div>
 					<div class="start__btn-wrapper">
-						<a class="start__btn blue-button link" href="">Отправить заявку</a>
+						<button class="start__btn blue-button link" onclick="openForm('', 'clients', 'clients', 'right')">Отправить заявку</button>
 					</div>
 				</div>
 			</div>
@@ -614,7 +623,7 @@
 					<img src="assets/phone.svg" alt="">
 					<a class="footer__phone-link link" href="tel:+74952300300">+7 (495) 2-300-300</a>
 				</div>
-				<a class="footer__btn blue-button link" href="">Стать клиентом</a>
+				<button class="footer__btn blue-button link" onclick="openForm('', 'clients', 'clients', 'right')">Стать клиентом</button>
 			</div>
 		</div>
 	</div>

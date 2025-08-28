@@ -87,29 +87,42 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// Форма "Рассчитайте стоимость услуг"
-document.addEventListener('DOMContentLoaded', function(){
+// ФОРМЫ
+const formServices= document.getElementById('form_services');
+const formFon= document.getElementById('form_fon');
+const formDescription= document.getElementById('form_description');
+const formTitle= document.getElementById('form_title');
+const formShow= document.querySelectorAll('.form_show');
+const formElements= document.querySelectorAll('form input, form select, form textarea');
 
-    const formServices= document.getElementById('form_services');
-    const buttonsOpen= document.querySelectorAll('.services__btn');
-    const buttonsClosed= document.querySelectorAll('.services_closed');
+// Открытие формы
+function openForm(description, type, img, position) {
+    formFon.innerHTML = `<picture class="form_fon_picture">
+            <source srcset="./assets/${img}.png" />
+            <img class="form_fon_picture_img" src="./assets/${img}.png" alt="${description}" />
+        </picture>`;
+    formDescription.innerText = description;
+    formTitle.innerText = type === 'services' ? 'Рассчитайте стоимость услуг' : 'Стать клиентом';
+    formServices.classList.remove(position === 'left' ? 'right' : 'left');
+    formServices.classList.add('open', 'animation', position);
 
-    // Открываем форму
-    if (buttonsOpen.length > 0) {
-        buttonsOpen.forEach(button=> {
-            button.addEventListener('click', ()=> {
-                formServices.classList.add('open', 'animation');
-            });
-        });
-    }
+    // Показываем нужные поля для формы, другие скрываем
+    const elementArray = Array.from(formShow);
+    elementArray.forEach(el => {
+        if(el.dataset.show.indexOf(type) !== -1) el.classList.remove('form_hidden');
+        else el.classList.add('form_hidden');
+    })
+}
 
-    // Закрываем форму
-    if (buttonsClosed.length > 0) {
-        buttonsClosed.forEach(button=> {
-            button.addEventListener('click', ()=> {
-                formServices.classList.remove('open');
-            });
-        });
-    }
+// Закрытие формы
+function closedForm(event) {
+    formServices.classList.remove('open');
+}
 
+// placeholder - Смотрим что поле заполнено
+formElements.forEach(el => {
+    el.addEventListener('input', () => {
+        if(el.value.length > 0) el.classList.add('is-value');
+        else el.classList.remove('is-value');
+    });
 });

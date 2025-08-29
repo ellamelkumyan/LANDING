@@ -13,10 +13,34 @@
     --form-input-margin-bottom: 40px;
 }
 
+
+/* body */
+.no-scroll {
+    overflow: hidden;
+}
+
+/* calendar */
+.right .form_calendar {
+    right: var(--form-content-padding);
+    width: 620px;
+}
+
+.left .form_calendar {
+    left: var(--form-content-padding);
+    width: 620px;
+}
+
+.form_calendar_content {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+
+/* FORM */
 .form {
     position: fixed;
     inset: 0;
-    z-index: 100;
+    z-index: 10;
 
     display: flex;
     align-items: flex-start;
@@ -79,7 +103,18 @@
     background: var(--bg-surface);
 
     overflow: auto;
+
+    /* Скрываем scrollbar для IE, Edge и Firefox */
+    -ms-overflow-style: none;  /* IE и Edge */
+    scrollbar-width: none;  /* Firefox */
 }
+
+/* Скрываем scrollbar для Chrome, Safari и Opera */
+.form_box::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
 
 .form.right .form_box {
     margin-left: -24px;
@@ -320,7 +355,6 @@
 .form_hidden {
     display: none;
 }
-
 
 /* animation */
 .form.animation.open {

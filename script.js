@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // ФОРМЫ
+const documentBody = document.body
 const formServices= document.getElementById('form_services');
 const formFon= document.getElementById('form_fon');
 const formDescription= document.getElementById('form_description');
@@ -97,6 +98,9 @@ const formElements= document.querySelectorAll('form input, form select, form tex
 
 // Открытие формы
 function openForm(description, type, img, position) {
+    documentBody.classList.remove(position === 'left' ? 'right' : 'left');
+    documentBody.classList.add('no-scroll', position);
+
     formFon.innerHTML = `<picture class="form_fon_picture">
             <source srcset="./assets/${img}.png" />
             <img class="form_fon_picture_img" src="./assets/${img}.png" alt="${description}" />
@@ -116,6 +120,8 @@ function openForm(description, type, img, position) {
 
 // Закрытие формы
 function closedForm(event) {
+    documentBody.classList.remove('no-scroll');
+
     formServices.classList.remove('open');
 }
 

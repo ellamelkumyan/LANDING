@@ -7,7 +7,9 @@
 	<link rel="stylesheet" href="./style.css">
 	<link rel="stylesheet" href="./variables.css">
 	<link rel="stylesheet" href="./reset.css">
-	<link rel="stylesheet" href="./forms.css">
+
+	<link rel="preload" href="./forms.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<link rel="preload" href="./calendar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 </head>
 <body>
 
@@ -29,9 +31,12 @@
 
 					<div class="form_input form_show" data-show='["services"]'>
 						<label>
-							<input type="text">
+							<input type="text" id="calendar">
 							<span class="form_input_placeholder">
 								<span class="form_input_placeholder_text">Период проживания</span>
+							</span>
+							<span class="form_calendar">
+								<span></span>
 							</span>
 						</label>
 					</div>
@@ -628,7 +633,8 @@
 		</div>
 	</div>
 
-<script src="script.js"></script>
+<script src="./script.js"></script>
+<script src="./calendar.js" defer></script>
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -662,7 +668,5 @@
 </noscript>
 <!-- /Yandex.Metrika counter -->
 
-</body>
-</html>
 </body>
 </html>

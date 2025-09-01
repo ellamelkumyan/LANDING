@@ -13,14 +13,14 @@
 </head>
 <body>
 
-	<div class="form" id="form_services">
+	<div class="form" id="form">
 
 		<div class="form_fon" id="form_fon"></div>
 
 		<div class="form_box">
 			<span class="form_box_closed link services_closed" onclick="closedForm()"></span>
 
-			<form class="form_content">
+			<form class="form_content" autocomplete="off">
 
 				<div class="form_content_title">
 					<div class="form_content_title_description" id="form_description"></div>
@@ -29,21 +29,85 @@
 
 				<div class="form_content_box">
 
-					<div class="form_input form_show" data-show='["services"]'>
+					<div class="form_input form_input_disabled form_icon_calendar form_show" data-show='["services"]'>
 						<label>
-							<input type="text" id="calendar">
+							<input type="text" id="calendar" readonly>
 							<span class="form_input_placeholder">
 								<span class="form_input_placeholder_text">Период проживания</span>
 							</span>
-							<span class="form_calendar">
-								<span></span>
+							<span class="form_calendar_icon"></span>
+						</label>
+					</div>
+
+					<div id="form_event" class="form_input form_icon_arrow form_show" data-event="true" data-show='["services"]'>
+						<label>
+							<input type="text" data-event="true" autocomplete="alean-event" readonly>
+							<span class="form_input_placeholder">
+								<span class="form_input_placeholder_text">Тип мероприятия</span>
+							</span>
+							<span class="form_input_choice">
+								<ul class="choice"></ul>
+							</span>
+							<span class="form_arrow"></span>
+						</label>
+					</div>
+
+					<div class="form_input form_show" data-show='["services"]'>
+						<label>
+							<input type="text" autocomplete="alean-region">
+							<span class="form_input_placeholder">
+								<span class="form_input_placeholder_text">Регион проведения</span>
+							</span>
+						</label>
+					</div>
+
+					<div id="form_comfort" class="form_input form_icon_arrow form_show" data-comfort="true" data-show='["services"]'>
+						<label>
+							<input type="text" data-comfort="true" autocomplete="alean-comfort" readonly>
+							<span class="form_input_placeholder">
+								<span class="form_input_placeholder_text">Уровень комфорта</span>
+							</span>
+							<span class="form_input_choice">
+								<ul class="choice"></ul>
+							</span>
+							<span class="form_arrow"></span>
+						</label>
+					</div>
+
+					<div id="form_power" class="form_input form_icon_arrow form_show" data-power="true" data-show='["services"]'>
+						<label>
+							<input type="text" data-power="true" autocomplete="alean-power" readonly>
+							<span class="form_input_placeholder">
+								<span class="form_input_placeholder_text">Тип питания</span>
+							</span>
+							<span class="form_input_choice">
+								<ul class="choice"></ul>
+							</span>
+							<span class="form_arrow"></span>
+						</label>
+					</div>
+
+					<div class="form_input form_show" data-people="false" data-show='["services"]'>
+						<label>
+							<input type="text" autocomplete="alean-people" id="people-mask">
+							<span class="form_input_placeholder">
+								<span class="form_input_placeholder_text">Количество человек</span>
+							</span>
+						</label>
+					</div>
+
+					<div class="form_input form_show" data-budget="false" data-show='["services"]'>
+						<label>
+							<input type="text" autocomplete="alean-people" id="budget-mask">
+							<span class="form_input_placeholder">
+								<span class="form_input_placeholder_text">Бюджет (из расчета на  1 человека)</span>
 							</span>
 						</label>
 					</div>
 
 					<div class="form_input form_show" data-show='["services"]'>
 						<label>
-							<input type="text">
+							<input type="text" autocomplete="alean-city-1">
 							<span class="form_input_placeholder">
 								<span class="form_input_placeholder_text">Город отравления</span>
 							</span>
@@ -52,7 +116,7 @@
 
 					<div class="form_input form_show" data-show='["services"]'>
 						<label>
-							<input type="text">
+							<input type="text" autocomplete="alean-city-2">
 							<span class="form_input_placeholder">
 								<span class="form_input_placeholder_text">Город прибытия</span>
 							</span>
@@ -61,27 +125,33 @@
 
 					<div class="form_content_box_description form_show" data-show='["services"]'>Типы услуг</div>
 
-					<div class="form_input form_input_margin form_show" data-show='["services"]'>
+					<div class="form_tag" id="form_tag"></div>
+
+					<div class="form_input form_icon_magnifying_glass form_icon_arrow form_input_margin form_show" data-services="true" data-show='["services"]'>
 						<label>
-							<input type="text">
+							<input type="text" data-services="true" name="services" autocomplete="alean-services">
 							<span class="form_input_placeholder">
 								<span class="form_input_placeholder_text">Добавить</span>
 							</span>
+							<span class="form_input_choice">
+								<ul id="form_services"></ul>
+							</span>
+							<span class="form_arrow"></span>
 						</label>
 					</div>
 
 					<div class="form_input form_show" data-show='["services", "clients"]'>
 						<label>
-							<input type="text">
+							<input type="text" autocomplete="alean-name">
 							<span class="form_input_placeholder">
 								<span class="form_input_placeholder_text">Имя</span>
 							</span>
 						</label>
 					</div>
 
-					<div class="form_input form_show" data-show='["services", "clients"]'>
+					<div class="form_input form_show" data-phone="false" data-show='["services", "clients"]'>
 						<label>
-							<input type="text">
+							<input type="text" autocomplete="alean-phone" id="phone-mask">
 							<span class="form_input_placeholder">
 								<span class="form_input_placeholder_text">Телефон</span>
 							</span>
@@ -90,7 +160,7 @@
 
 					<div class="form_input form_show" data-show='["services", "clients"]'>
 						<label>
-							<input type="text">
+							<input type="text" autocomplete="alean-email">
 							<span class="form_input_placeholder">
 								<span class="form_input_placeholder_text">E-mail</span>
 							</span>
@@ -99,7 +169,7 @@
 
 					<div class="form_input form_input_margin form_show" data-show='["services", "clients"]'>
 						<label>
-							<input type="text">
+							<input type="text" autocomplete="alean-company">
 							<span class="form_input_placeholder">
 								<span class="form_input_placeholder_text">Название компании</span>
 							</span>
@@ -635,6 +705,7 @@
 
 <script src="./script.js"></script>
 <script src="./calendar.js" defer></script>
+<script src="./imask.js" defer></script>
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">

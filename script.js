@@ -1,3 +1,5 @@
+let calendar;
+
 document.addEventListener('DOMContentLoaded', function() {
     const homeSection = document.getElementById('homeSection');
     const slider = document.getElementById('slider');
@@ -84,8 +86,68 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Слушаем событие скролла
     window.addEventListener('scroll', handleScroll);
-});
 
+    // Calendar
+    const { Calendar } = window.VanillaCalendarPro;
+    const calendar_start = document.getElementById('calendar_start');
+    const calendar_end = document.getElementById('calendar_end');
+
+    const options = {
+        inputMode: true,
+        positionToInput: ['bottom'],
+        styles: {
+            calendar: 'vc form_calendar',
+            content: 'vc-content form_calendar_content',
+        },
+        locale: 'ru-RU',
+        type: 'multiple',
+        selectedTheme: "alean",
+        selectionDatesMode: 'multiple-ranged',
+        displayMonthsCount: 2,
+        enableDateToggle: false,
+        themeAttrDetect: 'html[data-theme]',
+        onClickDate(self) {
+            const months = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
+
+            const context = self.context
+
+            context.inputElement.classList.add('is-value');
+
+            const inputBox = context.inputElement.closest('.form_input');
+            inputBox.classList.remove('form-error')
+
+            context.inputElement.value = context.selectedDates.map((el, index) => {
+                if(index > 0) self.hide();
+
+                const date = new Date(el);
+
+                const day = date.getDate();
+                const monthName = months[date.getMonth()];
+                const year = String(date.getFullYear()).slice(-2);
+
+                return `${day} ${monthName}, ${year}`;
+            })
+
+            const period = context.selectedDates.map((el, index) => {
+                const date = new Date(el);
+
+                const day = String(date.getDate()).padStart(2, '0');
+                const monthName = String(date.getMonth() + 1).padStart(2, '0');
+                const year = date.getFullYear();
+
+                return `${day}.${monthName}.${year}`;
+            })
+
+            calendar_start.value = period[0]
+            calendar_end.value = period[1] || period[0]
+        },
+        onUpdate(self) {},
+    };
+
+    calendar = new Calendar('#calendar', options);
+    calendar.init();
+    // END. Calendar
+});
 
 // ФОРМЫ
 const documentBody = document.body
@@ -93,6 +155,9 @@ const form= document.getElementById('form');
 const formFon= document.getElementById('form_fon');
 const formDescription= document.getElementById('form_description');
 const formTitle= document.getElementById('form_title');
+const formCalendarPlaceholder= document.getElementById('form_calendar_placeholder');
+const formSelectServices= document.getElementById('form_select_services');
+const formSend= document.getElementById('form-send');
 const formShow= document.querySelectorAll('.form_show');
 const formElements= document.querySelectorAll('form input, form select, form textarea');
 
@@ -122,9 +187,9 @@ let allComfort = [
 // Тип питания
 const formPower = document.getElementById('form_power');
 let allPower = [
-    {selected: false, value: 'Завтрак (BB)', xml: ""},
-    {selected: false, value: 'Полупансион(HB)', xml: ""},
-    {selected: false, value: 'Полный пансион(FB)', xml: ""}
+    {selected: false, value: 'Завтрак (BB)', xml: "BB"},
+    {selected: false, value: 'Полупансион(HB)', xml: "HB"},
+    {selected: false, value: 'Полный пансион(FB)', xml: "FB"}
 ]
 
 // Услуги
@@ -148,7 +213,7 @@ function isSelected(selected, start, formInput, arrSelected) {
 
     choice.innerHTML = '';
 
-    if(start) {
+    if(start && selected !== -1) {
         input.classList.add('is-value');
         input.value = arrSelected[selected].value;
     }
@@ -191,6 +256,8 @@ function listPower(selected = -1, start = false) {
 function listServices(search = '') {
     formServices.innerHTML = ''
     formServicesTag.innerHTML = ''
+
+    formSelectServices.classList.remove('form-error');
 
     allServices.forEach((el, index) => {
 
@@ -253,9 +320,16 @@ function openForm(description, type, img, position) {
             <img class="form_fon_picture_img" src="./assets/${img}.png" alt="${description}" />
         </picture>`;
     formDescription.innerText = description;
-    formTitle.innerText = type === 'services' ? 'Рассчитайте стоимость услуг' : 'Стать клиентом';
+    formTitle.innerText = type === 'CLIENTS' ? 'Стать клиентом' : 'Рассчитайте стоимость услуг';
+    formCalendarPlaceholder.innerText = type === 'BUSINESS' ? 'Период проживания' : 'Период мероприятия';
     form.classList.remove(position === 'left' ? 'right' : 'left');
     form.classList.add('open', 'animation', position);
+
+    // Указываем кнопке отправит, чот у нас за форма
+    formSend.setAttribute('data-form', type);
+
+    // Обновляем календарь (Сбрасываем)
+    calendar.update();
 
     // Показываем нужные поля для формы, другие скрываем
     const elementArray = Array.from(formShow);
@@ -263,8 +337,23 @@ function openForm(description, type, img, position) {
         if(el.dataset.show.indexOf(type) !== -1) {
             el.classList.remove('form_hidden');
 
+            // Очищаем поля
+            const elm = el.querySelector('input, textarea');
+            if(elm) {
+                elm.value = '';
+                elm.checked = false;
+                elm.classList.remove('is-value', 'is-show');
+                el.classList.remove('form-error');
+            }
+
             // Тип мероприятия - Подгружаем список
-            if(el.hasAttribute('data-event')) listEvent(1, true);
+            if(el.hasAttribute('data-event')) {
+
+                // Выставляем нужный тип мроприятия
+                const indexType = allEvent.findIndex(el => el.xml === type);
+
+                listEvent(indexType, true);
+            }
 
             // Уровень комфорта - Подгружаем список
             if(el.hasAttribute('data-comfort')) listComfort();
@@ -272,18 +361,8 @@ function openForm(description, type, img, position) {
             // Тип питания - Подгружаем список
             if(el.hasAttribute('data-comfort')) listPower();
 
-
-            // Список услуг
-            if(el.hasAttribute('data-services')) {
-
-                // Очищаем поле поиска
-                const elm = el.querySelector('input');
-                elm.value = '';
-                elm.classList.remove('is-value');
-
-                // Подгружаем список
-                listServices();
-            }
+            // Список услуг - Подгружаем список
+            if(el.hasAttribute('data-services')) listServices();
 
             // Телефон - Применяем маску
             if(el.dataset.phone === 'false') {
@@ -292,7 +371,7 @@ function openForm(description, type, img, position) {
                 IMask(
                   document.getElementById('phone-mask'),
                   {
-                      mask: '+{7} 000 000 00 00'
+                      mask: '+{7}(000)000-00-00'
                   }
                 )
             }
@@ -319,13 +398,10 @@ function openForm(description, type, img, position) {
                 IMask(
                   document.getElementById('budget-mask'),
                   {
-                      mask: 'num ₽',
-                      blocks: {
-                          num: {
-                              mask: Number,
-                              thousandsSeparator: ' '
-                          }
-                      },
+                      mask: Number,
+                      min: 1,
+                      max: 100000000,
+                      thousandsSeparator: ' '
                   }
                 )
             }
@@ -338,8 +414,8 @@ function openForm(description, type, img, position) {
 function closedForm() {
     documentBody.classList.remove('no-scroll');
     form.classList.remove('open');
+    formSend.setAttribute('data-form', '');
 }
-
 
 formElements.forEach(el => {
 
@@ -361,8 +437,14 @@ formElements.forEach(el => {
 
     // placeholder - Смотрим что поле заполнено
     el.addEventListener('input', () => {
+        const inputBox = el.closest('.form_input');
+        const checkboxBox = el.closest('.form_checkbox');
+
+        if(inputBox) inputBox.classList.remove('form-error');
+        if(checkboxBox) checkboxBox.classList.remove('form-error');
+
         if(el.value.length > 0) el.classList.add('is-value', 'is-show');
-        else el.classList.remove('is-value');
+        else el.classList.remove('is-value', 'is-show');
 
         // Поиск услуг
         if(el.dataset.services) {
@@ -370,4 +452,266 @@ formElements.forEach(el => {
         }
     });
 });
+
+function validateEmail(email) {
+    const re = new RegExp('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$');
+    return re.test(email);
+}
+
+function validateForm() {
+    let error = false
+    let json = {}
+
+    const calendar_start = document.getElementById('calendar_start');
+    const calendar_end = document.getElementById('calendar_end');
+
+    const elementArray = Array.from(formShow);
+    elementArray.forEach(el => {
+        if(!el.classList.contains('form_hidden')) {
+            const elm = el.querySelector('input, textarea');
+            if(elm) {
+
+                // (Имя, Название компании, Города ...) - Минимум 2 символа
+                if((
+                    elm.name === 'region' ||
+                    elm.name === 'name' ||
+                    elm.name === 'company' ||
+                    elm.name === 'city1' ||
+                    elm.name === 'city2'
+                  ) && elm.value.length <= 1) {
+                        el.classList.add('form-error');
+                        error = true;
+                }
+
+                // Количество человек
+                if(elm.name === 'people' && !(typeof elm.value === 'number' || elm.value > 0)) {
+                    el.classList.add('form-error');
+                    error = true;
+                }
+
+                // Бюджет
+                /*
+                if(elm.name === 'budget' && !(typeof elm.value === 'number' || elm.value > 0)) {
+                    el.classList.add('form-error');
+                    error = true;
+                }
+                */
+
+                // Телефон
+                if(elm.name === 'phone' && elm.value.length !== 16) {
+                    el.classList.add('form-error');
+                    error = true;
+                }
+
+                // E-mail
+                if(elm.name === 'email' && !validateEmail(elm.value)) {
+                    el.classList.add('form-error');
+                    error = true;
+                }
+
+                // Calendar
+                if(elm.name === 'calendar' && !elm.value) {
+                    el.classList.add('form-error');
+                    error = true;
+                }
+
+                // Типы услуг
+                if(elm.name === 'services' && !allServices.find(el => el.selected === true)) {
+                    el.classList.add('form-error');
+                    error = true;
+                }
+
+                // Типы мероприятия
+                if(elm.name === 'event' && !allEvent.find(el => el.selected === true)) {
+                    el.classList.add('form-error');
+                    error = true;
+                }
+
+                // Уровень комфорта
+                if(elm.name === 'comfort' && !allComfort.find(el => el.selected === true)) {
+                    el.classList.add('form-error');
+                    error = true;
+                }
+
+                // Тип питания
+                /*
+                if(elm.name === 'power' && !allPower.find(el => el.selected === true)) {
+                    el.classList.add('form-error');
+                    error = true;
+                }
+                */
+
+                // Checkbox
+                if(elm.name === 'checkbox' && !elm.checked) {
+                    el.classList.add('form-error');
+                    error = true;
+                }
+
+
+                // ------ json
+                if(
+                  elm.name === 'region' ||
+                  elm.name === 'name' ||
+                  elm.name === 'city1' ||
+                  elm.name === 'city2' ||
+                  elm.name === 'company' ||
+                  elm.name === 'phone' ||
+                  elm.name === 'email' ||
+                  elm.name === 'comment'
+                ) {
+                    json[elm.name] = elm.value;
+                }
+
+                if(
+                  elm.name === 'budget' ||
+                  elm.name === 'people'
+                ) {
+                    json[elm.name] = elm.value.replace(/[^0-9]/g, "");
+                }
+
+                if((elm.name === 'calendar')) {
+                    json['calendar_start'] = calendar_start.value;
+                    json['calendar_end'] = calendar_end.value;
+                }
+
+                if((elm.name === 'services')) {
+                    const arrServices= allServices.filter(el => el.selected === true);
+                    const services= arrServices.map(el => el.value);
+
+                    json[elm.name] = services || [];
+                }
+
+                if((elm.name === 'event')) {
+                    const arrServices= allEvent.filter(el => el.selected === true);
+                    const services = arrServices.length ? arrServices[0].xml : '';
+
+                    json[elm.name] = services || '';
+                }
+
+                if((elm.name === 'comfort')) {
+                    const arrComfort= allComfort.filter(el => el.selected === true);
+                    const comfort = arrComfort.length ? arrComfort[0].xml : '';
+
+                    json[elm.name] = comfort || '';
+                }
+
+                if((elm.name === 'power')) {
+                    const arrPower= allPower.filter(el => el.selected === true);
+                    const power = arrPower.length ? arrPower[0].xml : '';
+
+                    json[elm.name] = power || '';
+                }
+
+                if((elm.name === 'checkbox')) {
+                    json[elm.name] = elm.checked;
+                }
+
+            }
+        }
+    });
+
+    return {error, json};
+}
+
+// Отправка данных
+function sendJSON(event) {
+    const isForm = event.dataset.form
+    let dataToSend = {}
+
+    // Данные лендинга
+    const UF_APPEAL_SOURCE = 'LP'
+    const UF_APPEAL_UTM = ''
+    const UF_UTM = ''
+    const UF_LETTER_NAME = 'ЛЕНДИНГ'
+
+    // Проверяем на ошибки и получаем данные из формы
+    const obj = validateForm();
+
+    if(!obj.error) {
+        const json = obj.json
+
+        if(isForm === 'CLIENTS') {
+
+            // ЛЕНДИНГ. CRM-форма. Контакты - [CLIENTS]
+            dataToSend = {
+                NAME: json.name,                  // Имя
+                PHONE: json.phone,                // Телефон
+                EMAIL: json.email,                // Email
+                TITLE: json.company,              // Наименование компании
+                UF_MICE_COMMENT: json.comment,    // Пожелания
+                UF_OBRABOTKA_PERS: json.checkbox, // Согласие на обработку
+                UF_APPEAL_SOURCE,                 // Источник
+                UF_APPEAL_UTM,                    // UTM-метки
+                UF_LETTER_NAME                    // Название формы → заголовок письма
+            };
+        }
+
+        if(isForm === 'BUSINESS') {
+
+            // ЛЕНДИНГ. CRM-форма. БизнесТревел - [BUSINESS]
+            dataToSend = {
+                DATE_START: json.calendar_start,        // Дата начала поездки/проживания
+                DATE_END: json.calendar_end,            // Дата окончания поездки/проживания
+                UF_CARRIER_CITY_DEPARTURE: json.city1,  // Город отправления
+                UF_CARRIER_CITY_STAY: json.city2,       // Город прибытия
+                ORDER_TYPE: json.services,              // Типы услуг
+                NAME: json.name,                        // Имя
+                PHONE: json.phone,                      // Телефон
+                EMAIL: json.email,                      // Email
+                UF_MICE_COMMENT: json.comment,          // Пожелания
+                UF_OBRABOTKA_PERS: json.checkbox,       // Согласие на обработку
+                UF_APPEAL_SOURCE,                       // Источник
+                UF_UTM,                                 // UTM-метки
+                UF_LETTER_NAME,                         // Название формы →  заголовок письма
+                UF_APPEAL_TYPE: 'BUSINESS_TRIP',        // Тип мероприятия
+            };
+        }
+
+        if(isForm === 'MICE' || isForm === 'SPORT' || isForm === 'SANATORY') {
+
+            // ЛЕНДИНГ. CRM-форма.MICE -  [MICE, SPORT, SANATORY]
+            const dataToSend3 = {
+                UF_MICE_CITY: json.region,               // Регион проведения
+                UF_ORDER_RATING: json.comfort,           // Уровень комфорта
+                UF_ACCOMMODATION_EAT: json.power,        // Тип питания
+                UF_MICE_DATE_START: json.calendar_start, // Начало мероприятия
+                UF_MICE_DATET_END: json.calendar_end,    // Окончание мероприятия
+                UF_NUMBER_ADL: json.people,              // Количество взрослых
+                UF_NUMBER_CHL: 0,                        // Количество детей
+                UF_MICE_SOSTAV: '',                      // Возраст детей
+                UF_MICE_BUDJET: json.budget,             // Бюджет на 1 человека
+                TITLE: json.company,                     // Наименование компании
+                NAME: json.name,                         // Имя
+                PHONE: json.phone,                       // Телефон
+                EMAIL: json.email,                       // Email
+                UF_MICE_COMMENT: json.comment,           // Пожелания
+                UF_OBRABOTKA_PERS: json.checkbox,        // Согласие на обработку
+                UF_APPEAL_SOURCE,                        // Источник
+                UF_UTM,                                  // UTM-метки
+                UF_LETTER_NAME,                          // Название формы →  заголовок письма
+                UF_APPEAL_TYPE: json.event,              // Тип мероприятия
+            };
+        }
+
+
+        console.log(dataToSend);
+    }
+
+    /*
+
+    fetch('/api/users', { // Замените '/api/users' на ваш адрес сервера
+        method: 'POST', // Или другой метод, например, PUT
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(dataToSend) // Преобразуем объект в строку JSON
+    })
+      .then(response => response.json()) // Обрабатываем ответ сервера (парсим JSON)
+      .then(data => console.log('Успешно:', data)) // Работаем с данными ответа
+      .catch(error => console.error('Ошибка:', error)); // Обрабатываем ошибки
+
+     */
+}
+
+
 

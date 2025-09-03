@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const year = String(date.getFullYear()).slice(-2);
 
                 return `${day} ${monthName}, ${year}`;
-            }).join(' - ')
+            }).join(' - ');
 
             const period = context.selectedDates.map(el => {
                 const date = new Date(el);
@@ -231,7 +231,8 @@ function isSelected(selected, start, formInput, arrSelected) {
         listItem.addEventListener('click', function () {
             input.value = el.value;
             input.classList.add('is-active', 'is-value');
-            isSelected(index, start, formInput, arrSelected)
+            isSelected(index, start, formInput, arrSelected);
+            formInput.classList.remove('form-error');
         });
 
         choice.appendChild(listItem);

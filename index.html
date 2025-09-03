@@ -10,6 +10,7 @@
 
 	<link rel="preload" href="./forms.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<link rel="preload" href="./calendar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<link rel="preload" href="./animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 </head>
 <body>
 
@@ -263,8 +264,7 @@
 		</div>
 	</div>
 
-
-	<div class="home" id="homeSection">
+	<div class="home block" id="homeSection">
 		<!-- Слайдер -->
 		 <div class="slider" id="slider">
             <div class="slide active" style="background-image: url('assets/home-background.png');"></div>
@@ -285,7 +285,7 @@
             </div>
         </header>
 		<div class="home__container">
-            <img class="home__img-heart" id="heart" src="assets/heart.png" alt="Сердце">
+			<div class="home__img-heart" id="heart"></div>
             <!-- Исходный текст -->
             <div class="home__description" id="originalText">
                 <div class="home__title">Открой новые<br>горизонты с Алеан</div>
@@ -300,7 +300,6 @@
         </div>
     </div>
 
-
     <!-- <div class="intro">
         <div class="intro__container">
             <div class="intro__wrapper">
@@ -314,11 +313,10 @@
         </div>
     </div> -->
 
-
-	<div class="company" id="company">
+	<div class="company block" id="company">
 		<div class="company__title title">О компании</div>
 		<div class="company__wrapper wrapper">
-			<div class="company__item">
+			<div class="company__item block">
 				<div class="company__item-left">
 					<div class="company__item-title-up item-title">О компании</div>
 					<div class="company__text-wrapper">
@@ -355,7 +353,7 @@
 				</div>
 			</div>
 			<img class="line" src="assets/line.svg" alt="">
-			<div class="company__item">
+			<div class="company__item block">
 				<div class="company__item-left">
 					<div class="company__item-title-up item-title">О компании</div>
 					<div class="company__text-wrapper">
@@ -388,7 +386,7 @@
 				</div>
 			</div>
 			<img src="assets/line.svg" alt="">
-			<div class="company__item">
+			<div class="company__item block">
 				<div class="company__item-left">
 					<div class="company__item-title-up item-title">О компании</div>
 					<div class="company__text-wrapper">
@@ -422,11 +420,10 @@
 		</div>
 	</div>
 
-
-	<div class="services" id="services">
+	<div class="services block" id="services">
 		<div class="services__title title">Услуги</div>
 		<div class="services__wrapper wrapper">
-			<div class="services__item">
+			<div class="services__item block">
 				<div class="services__item-with-text">
 				<div class="services__item-title item-title">Услуги</div>
 				<div class="services__text-wrapper">
@@ -443,7 +440,7 @@
 			</div>
 			</div>
 			<img class="line" src="assets/line.svg" alt="">
-			<div class="services__item">
+			<div class="services__item block">
 				<div class="services__item-with-img">
 					<img class="services__img" src="assets/mice.png" alt="">
 				</div>
@@ -461,7 +458,7 @@
 				</div>
 			</div>
 			<img class="line" src="assets/line.svg" alt="">
-			<div class="services__item">
+			<div class="services__item block">
 				<div class="services__item-with-text">
 					<div class="services__item-title item-title">Услуги</div>
 					<div class="services__text-wrapper">
@@ -479,7 +476,7 @@
 				</div>
 			</div>
 			<img class="line" src="assets/line.svg" alt="">
-			<div class="services__item">
+			<div class="services__item block">
 				<div class="services__item-with-img">
 					<img class="services__img" src="assets/health.png" alt="">
 				</div>
@@ -496,7 +493,7 @@
 				</div>
 			</div>
 			<img class="line" src="assets/line.svg" alt="">
-			<div class="services__item">
+			<div class="services__item block">
 				<div class="services__item-with-text">
 					<div class="services__item-title item-title">Услуги</div>
 					<div class="services__text-wrapper">
@@ -510,7 +507,7 @@
 			</div>
 			</div>
 			<img class="line" src="assets/line.svg" alt="">
-			<div class="services__item">
+			<div class="services__item block">
 				<div class="services__item-with-img">
 					<img class="services__img" src="assets/excursion.png" alt="">
 				</div>
@@ -529,12 +526,11 @@
 		</div>
 	</div>
 
-
-	<div class="clients" id="clients">
+	<div class="clients block" id="clients">
 		<div class="clients__title title">Корпоративным<br>клиентам</div>
 		<div class="clients__wrapper wrapper">
 			<div class="clients__items-wrapper">
-				<div class="clients__item">
+				<div class="clients__item block">
 					<div class="clients__item-left">
 						<div class="clients__item-title item-title">Решения</div>
 						<div class="clients__text-wrapper">
@@ -555,7 +551,7 @@
 						<img class="clients__img-underscreen" src="assets/under-screen.png" alt="">
 					</div>
 				</div>
-				<div class="clients__item-down">
+				<div class="clients__item-down block">
 					<div class="clients__item-title item-title">Решения</div>
 					<div class="clients__item-subtitle item-subtitle">Автоматизированная система обработки обращений</div>
 					<div class="clients__item-text-wrapper">
@@ -626,11 +622,10 @@
 		</div>
 	</div>
 
-
-	<div class="agency" id="agency">
+	<div class="agency block" id="agency">
 		<div class="agency__title title">Туристическим агентствам</div>
 		<div class="agency__wrapper wrapper">
-			<div class="agency__text-and-card-wrapper">
+			<div class="agency__text-and-card-wrapper block">
 				<div class="agency__left">
 					<div class="agency__left-text description">Компания «Алеан» приносит значительную пользу туристическим агентствам при обслуживании корпоративных клиентов, поскольку обеспечивает уникальные возможности для эффективного взаимодействия и развития взаимовыгодного партнерства.</div>
 					<a class="link-wrapper link" href="https://www.alean.ru/agency/page/sotrudnichestvo/?label=kak_nachat_sotrudnichestvo_ta" target="_blank">
@@ -660,57 +655,54 @@
 		</div>
 	</div>
 
-
-	<div class="start">
-		<img class="start__img-left" src="assets/way.svg" alt="">
-		<img class="start__img-plane" src="assets/plane.svg" alt="">
-		<div class="start__container">
-		<div class="start__title">Как начать работу</div>
-		<div class="start__cards_wrapper">
-			<div class="start__card-white">
-				<div class="start__card-left">
-					<img src="assets/one.svg" alt="">
-				</div>
-				<div class="start__card-right">
-					<div class="start__card-title-black">Отправить заявку</div>
-					<div class="start__card-description-black">Заявка направляется по электронной почте вашим тревел-координатором, либо непосредственно командируемым сотрудником, либо через специальную форму</div>
-					<div class="start__btn-wrapper">
-						<button class="start__btn blue-button link" onclick="openForm('', 'CLIENTS', 'clients', 'right')">Отправить заявку</button>
+	<div class="start block">
+		<div class="start__title title">Как начать работу</div>
+		<div class="planer_1 planer"><i><i><i></i></i></i></div>
+		<div class="planer_2 planer"><i><i><i></i></i></i></div>
+		<div class="planer_3 planer"><i><i><i></i></i></i></div>
+		<div class="start_box block">
+			<div class="start__container">
+				<div class="start__cards_wrapper">
+					<div class="start__card-white">
+						<div class="start__card-left">
+							<img src="assets/one.svg" alt="">
+						</div>
+						<div class="start__card-right">
+							<div class="start__card-title-black">Отправить заявку</div>
+							<div class="start__card-description-black">Заявка направляется по электронной почте вашим тревел-координатором, либо непосредственно командируемым сотрудником, либо через специальную форму</div>
+							<div class="start__btn-wrapper">
+								<button class="start__btn blue-button link" onclick="openForm('', 'CLIENTS', 'clients', 'right')">Отправить заявку</button>
+							</div>
+						</div>
+					</div>
+					<div class="start__card">
+						<div class="start__card-left">
+							<img src="assets/two.svg" alt="">
+						</div>
+						<div class="start__card-right">
+							<div class="start__card-title">Подписать договор</div>
+							<div class="start__card-description">Мы направим стандартный договор и наши условия с учетом ваших пожеланий. Останется только подписать договор.</div>
+						</div>
+					</div>
+					<div class="start__card">
+						<div class="start__card-left">
+							<img src="assets/three.svg" alt="">
+						</div>
+						<div class="start__card-right">
+							<div class="start__card-title">Получить доступ и начать работу</div>
+							<div class="start__card-description">Получите доступ в личный кабинет или направляйте заявки удобным для вас способом:  через форму-шаблон, по email, через мессенджер или телефон</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="start__card">
-				<div class="start__card-left">
-					<img src="assets/two.svg" alt="">
-				</div>
-				<div class="start__card-right">
-					<div class="start__card-title">Подписать договор</div>
-					<div class="start__card-description">Мы направим стандартный договор и наши условия с учетом ваших пожеланий. Останется только подписать договор.</div>
-				</div>
-			</div>
-			<div class="start__card">
-				<div class="start__card-left">
-					<img src="assets/three.svg" alt="">
-				</div>
-				<div class="start__card-right">
-					<div class="start__card-title">Получить доступ и начать работу</div>
-					<div class="start__card-description">Получите доступ в личный кабинет или направляйте заявки удобным для вас способом:  через форму-шаблон, по email, через мессенджер или телефон</div>
-				</div>
-			</div>
 		</div>
-		</div>
-					<img class="start__img-middle" src="assets/way-middle.svg" alt="">
-
-			<img class="start__img-right" src="assets/way-right.svg" alt="">
-			<img class="start__img-plane-right" src="assets/plane.svg" alt="">
 	</div>
 
-
-	<div class="questions">
+	<div class="questions block">
 		<div class="questions__title title">Часто задаваемые<br>вопросы:</div>
 		<div class="questions__wrapper wrapper">
 			<div class="questions__items-wrapper">
-				<div class="questions__item-no-border">
+				<div class="questions__item-no-border block">
 					<div class="questions__item-left">
 						<img class="questions__img" src="assets/question.svg" alt="">
 					</div>
@@ -719,7 +711,7 @@
 						<div class="questions__item-description">Корпоративным клиентам, не готовым к долгим интеграциям и часто использующим сложные маршруты и групповые размещения. Компаниям с госучастием, требующим соблюдения закупочных процедур</div>
 					</div>
 				</div>
-				<div class="questions__item">
+				<div class="questions__item block">
 					<div class="questions__item-left">
 						<img class="questions__img" src="assets/question.svg" alt="">
 					</div>
@@ -728,7 +720,7 @@
 						<div class="questions__item-description">Заполните форму или отправьте запрос на почту tender@alean.ru</div>
 					</div>
 				</div>
-				<div class="questions__item">
+				<div class="questions__item block">
 					<div class="questions__item-left">
 						<img class="questions__img" src="assets/question.svg" alt="">
 					</div>
@@ -737,7 +729,7 @@
 						<div class="questions__item-description">Заполните форму либо напишите на почту info@alean.ru. С Вами свяжется наш куратор по региону</div>
 					</div>
 				</div>
-				<div class="questions__item">
+				<div class="questions__item block">
 					<div class="questions__item-left">
 						<img class="questions__img" src="assets/question.svg" alt="">
 					</div>
@@ -750,11 +742,10 @@
 		</div>
 	</div>
 
-
-	<div class="footer" id="footer">
+	<div class="footer block" id="footer">
 		<img class="footer__img-heart" src="assets/heart-footer.png" alt="Сердце">
-		<div class="footer__wrapper">
-			<div class="footer__title">Контакты</div>
+		<div class="footer__wrapper block">
+			<div class="footer__title title">Контакты</div>
 			<div class="footer__items-wrapper">
 				<div class="footer__mail-wrapper">
 					<img src="assets/mail.svg" alt="">

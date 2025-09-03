@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const originalText = document.getElementById('originalText');
     const newText = document.getElementById('newText');
 
+    const blocks = document.querySelectorAll('.block');
+
     let isScrolled = false;
 
     // Функция для обработки скролла
@@ -54,6 +56,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 originalText.style.transform = 'translateX(0)';
             }, 400);
         }
+
+        // Плавный показ блоков
+        const windowHeight = window.innerHeight;
+
+        blocks.forEach(block => {
+            if (block.getBoundingClientRect().top < windowHeight * 1.2) {
+                block.classList.add('visible');
+            } else {
+                block.classList.remove('visible');
+            }
+        });
     }
 
     // Слайдер
@@ -84,8 +97,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+
+    // Start
+    handleScroll();
+
     // Слушаем событие скролла
     window.addEventListener('scroll', handleScroll);
+
 
     // Calendar
     const { Calendar } = window.VanillaCalendarPro;

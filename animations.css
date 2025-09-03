@@ -1,0 +1,163 @@
+.block {
+    opacity: 0;
+    transform: translateY(200px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.block.visible {
+    opacity: 1; /* Делает блок видимым */
+    transform: translateY(0); /* Убирает сдвиг */
+}
+
+
+/* Самолёт 1 */
+.planer_1.planer {
+    top: 0;
+    left: 0;
+
+    width: 455px;
+    height: 334px;
+
+    background-image: url("./assets/way.svg");
+    background-position: top left;
+    background-size: 445px auto;
+}
+
+.planer_1.planer > i {
+    top: -962px;
+    left: -775px;
+
+    width: 1300px;
+    height: 1300px;
+}
+
+/* Самолёт 2 */
+.planer_2.planer {
+    bottom: 0;
+    right: 0;
+
+    width: 715px;
+    height: 460px;
+
+    background-image: url("./assets/way-middle.svg");
+    background-position: bottom right;
+    background-size: 705px auto;
+}
+
+.planer_2.planer > i {
+    bottom: -1447px;
+    right: -1055px;
+
+    width: 1903px;
+    height: 1903px;
+
+    animation: planer_opacity 6s linear 1 forwards, rotate 40s linear 2s infinite;
+}
+
+/* Самолёт 3 */
+.planer_3.planer {
+    bottom: 0;
+    right: 0;
+
+    width: 464px;
+    height: 536px;
+
+    background-image: url("./assets/way-right.svg");
+    background-position: bottom right;
+    background-size: 454px auto;
+}
+
+.planer_3.planer > i {
+    bottom: -916px;
+    right: -1025px;
+
+    width: 1500px;
+    height: 1500px;
+
+    animation-direction: reverse;
+}
+
+.planer_3.planer i:before,
+.planer_3.planer i:after {
+    background-image: url("./assets/plane2.svg");
+}
+
+
+/* Самолёты (общее) */
+.planer {
+    position: absolute;
+
+    z-index: 1;
+
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+.planer > i {
+    position: absolute;
+    z-index: 1;
+
+    animation: rotate 40s linear infinite;
+}
+
+.planer > i i {
+    display: block;
+    width: inherit;
+    height: inherit;
+    transform: rotate(60deg);
+}
+
+.planer > i,
+.planer > i i {
+    border-radius: 50%;
+}
+
+.planer i:before {
+    right: -16px;
+    transform: rotate(-75deg);
+}
+
+.planer i:after {
+    left: -16px;
+    transform: rotate(102deg);
+}
+
+.planer i:before,
+.planer i:after {
+    content: '';
+
+    position: absolute;
+    top: calc(50% - 16px);
+
+    z-index: 1;
+
+    width: 40px;
+    height: 40px;
+
+    background-image: url("./assets/plane.svg");
+    background-size: 40px auto;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes planer_opacity {
+    0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

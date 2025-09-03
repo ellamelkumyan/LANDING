@@ -373,8 +373,6 @@
     bottom: 0;
     z-index: 3;
 
-    background-color: var(--bg-surface);
-
     pointer-events: none;
 
     border-radius: var(--input-radius);
@@ -403,6 +401,7 @@
 .form_textarea textarea:focus ~ .form_textarea_placeholder,
 .form_input input.is-value ~ .form_input_placeholder,
 .form_textarea textarea.is-value ~ .form_textarea_placeholder {
+    background-color: var(--bg-surface);
     left: 12px;
     top: -10px;
     bottom: auto;

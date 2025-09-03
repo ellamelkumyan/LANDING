@@ -26,11 +26,17 @@ body {
 	font-weight: 800;
 	font-size: var(--text-display);
 	opacity: 30%;
-	margin: 80px 0;
+	margin: 80px 40px;
+
+	position: sticky;
+	top: 20px;
+	z-index: 1;
+	pointer-events: none;
 }
 
 .wrapper {
-	max-width: 1200px;
+	position: relative;
+	z-index: 2;
 	width: 100%;
 	max-width: 1180px;
 	flex-direction: column;
@@ -131,6 +137,11 @@ body {
     align-items: center;
 }
 
+.home__header-logo-alean {
+	width: 136px;
+	height: 40px;
+}
+
 .home__header-logo-travel {
 	width: 91px;
 	height: 16px;
@@ -173,12 +184,14 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 90%;
     pointer-events: none;
-    transition: all 800ms ease-in-out;
-	opacity: 0.9;
+    transition: all 0.8s ease-in-out;
+
+	background: url("./assets/heart.svg");
+	/*
 	backdrop-filter: blur(9.04px);
-    -webkit-backdrop-filter: blur(9.04px); /* Для Safari */
+    -webkit-backdrop-filter: blur(9.04px);
+ 	*/
 }
 
 .home__img-heart.scrolled {
@@ -888,19 +901,29 @@ body {
 	font-family: "Montserrat", serif;
 	font-weight: 800;
 	font-size: var(--text-display);
-	margin: 120px 0px 80px 40px;
+	opacity: 1;
 }
 
 
 .start {
+	padding-top: 80px;
+	margin: 0 40px;
 	background: linear-gradient(224.87deg, #6CC8F1 0%, #78A6FF 13.46%, #7E96FF 37.98%, #888BFF 56.25%, #978CFF 82.21%, #B97BFF 100%);
-	margin: 24px 40px;
+	background-size: auto;
+	border-radius: var(--radius-xxl);
+	position: relative;
+	z-index: 2;
+}
+
+.start_box {
+	position: relative;
+	top: 0;
+	margin: 80px 40px 24px 40px;
+	z-index: 3;
+	overflow: hidden;
 	border-radius: var(--radius-xxl);
 	display: flex;
 	flex-direction: column;
-	position: relative;
-	z-index: 2;
-	overflow: hidden;
 }
 
 .start__cards_wrapper {
@@ -992,47 +1015,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
-}
-
-.start__img-left {
-	width: 445px;
-	height: 325px;
-	position: absolute;
-	z-index: -2;
-}
-
-.start__img-plane {
-	width: 40px;
-	height: 40px;
-	z-index: 2;
-	top: 290px;
-    left: 20px;
-	position: absolute;
-}
-
-.start__img-right {
-	position: absolute;
-	z-index: -2;
-	top: 170px;
-    right: -30px;
-
-}
-
-.start__img-middle {
-	position: absolute;
-	z-index: -2;
-	top: 250px;
-    right: 0px;
-}
-
-.start__img-plane-right {
-	width: 40px;
-	height: 40px;
-	z-index: 2;
-	position: absolute;
-	top: 216px;
-    right: 80px;
-	transform: rotate(345deg);
 }
 
 .questions {

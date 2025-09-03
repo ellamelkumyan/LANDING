@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const year = String(date.getFullYear()).slice(-2);
 
                 return `${day} ${monthName}, ${year}`;
-            })
+            }).join(' - ')
 
             const period = context.selectedDates.map(el => {
                 const date = new Date(el);

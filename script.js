@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return `${day} ${monthName}, ${year}`;
             })
 
-            const period = context.selectedDates.map((el, index) => {
+            const period = context.selectedDates.map(el => {
                 const date = new Date(el);
 
                 const day = String(date.getDate()).padStart(2, '0');
@@ -155,9 +155,11 @@ const form= document.getElementById('form');
 const formFon= document.getElementById('form_fon');
 const formDescription= document.getElementById('form_description');
 const formTitle= document.getElementById('form_title');
+const formContent= document.getElementById('form_content');
 const formCalendarPlaceholder= document.getElementById('form_calendar_placeholder');
 const formSelectServices= document.getElementById('form_select_services');
 const formSend= document.getElementById('form-send');
+const formInfoSend= document.getElementById('form_info_send');
 const formShow= document.querySelectorAll('.form_show');
 const formElements= document.querySelectorAll('form input, form select, form textarea');
 
@@ -312,6 +314,9 @@ function listServices(search = '') {
 
 // Открытие формы
 function openForm(description, type, img, position) {
+    formInfoSend.innerHTML = '';
+    formContent.classList.remove('form_hidden');
+
     documentBody.classList.remove(position === 'left' ? 'right' : 'left');
     documentBody.classList.add('no-scroll', position);
 
@@ -325,7 +330,7 @@ function openForm(description, type, img, position) {
     form.classList.remove(position === 'left' ? 'right' : 'left');
     form.classList.add('open', 'animation', position);
 
-    // Указываем кнопке отправит, чот у нас за форма
+    // Указываем кнопке отправить, чот у нас за форма
     formSend.setAttribute('data-form', type);
 
     // Обновляем календарь (Сбрасываем)
@@ -453,6 +458,8 @@ formElements.forEach(el => {
     });
 });
 
+
+// Validate
 function validateEmail(email) {
     const re = new RegExp('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$');
     return re.test(email);
@@ -613,6 +620,20 @@ function validateForm() {
     return {error, json};
 }
 
+function sendInfo(error = false, hidden = true) {
+    if(hidden) formContent.classList.add('form_hidden');
+
+    formInfoSend.innerHTML = `<div class="form_content_box_send">
+        <div class="${error ? 'form_info_send form_info_send_error' : 'form_info_send'}">
+            <div class="form_info_send_left"><span><i></i></span></div>
+            <div>
+                <div class="form_info_send_title">${error ? 'Что-то пошло не так' : 'Ваша заявка успешно отправлена'}</div>
+                <div class="form_info_send_description">${error ? 'Попробуйте повторить попытку через некоторое время' : 'В ближайшее время наш менеджер свяжется с Вами.'}</div>
+            </div>
+        </div>
+    </div>`;
+}
+
 // Отправка данных
 function sendJSON(event) {
     const isForm = event.dataset.form
@@ -627,10 +648,10 @@ function sendJSON(event) {
     // Проверяем на ошибки и получаем данные из формы
     const obj = validateForm();
 
-    if(!obj.error) {
+    if (!obj.error) {
         const json = obj.json
 
-        if(isForm === 'CLIENTS') {
+        if (isForm === 'CLIENTS') {
 
             // ЛЕНДИНГ. CRM-форма. Контакты - [CLIENTS]
             dataToSend = {
@@ -646,7 +667,7 @@ function sendJSON(event) {
             };
         }
 
-        if(isForm === 'BUSINESS') {
+        if (isForm === 'BUSINESS') {
 
             // ЛЕНДИНГ. CRM-форма. БизнесТревел - [BUSINESS]
             dataToSend = {
@@ -667,10 +688,10 @@ function sendJSON(event) {
             };
         }
 
-        if(isForm === 'MICE' || isForm === 'SPORT' || isForm === 'SANATORY') {
+        if (isForm === 'MICE' || isForm === 'SPORT' || isForm === 'SANATORY') {
 
             // ЛЕНДИНГ. CRM-форма.MICE -  [MICE, SPORT, SANATORY]
-            const dataToSend3 = {
+            dataToSend = {
                 UF_MICE_CITY: json.region,               // Регион проведения
                 UF_ORDER_RATING: json.comfort,           // Уровень комфорта
                 UF_ACCOMMODATION_EAT: json.power,        // Тип питания
@@ -697,7 +718,15 @@ function sendJSON(event) {
         console.log(dataToSend);
     }
 
+
+
+    // Сообщение об успешной или не успешной отправке
     /*
+        Удалить после подключение fetch (api)
+    */
+    sendInfo(obj.error, false);
+
+/*
 
     fetch('/api/users', { // Замените '/api/users' на ваш адрес сервера
         method: 'POST', // Или другой метод, например, PUT
@@ -707,11 +736,16 @@ function sendJSON(event) {
         body: JSON.stringify(dataToSend) // Преобразуем объект в строку JSON
     })
       .then(response => response.json()) // Обрабатываем ответ сервера (парсим JSON)
-      .then(data => console.log('Успешно:', data)) // Работаем с данными ответа
-      .catch(error => console.error('Ошибка:', error)); // Обрабатываем ошибки
+      .then(data => {
+          sendInfo(true);
+          console.log('Успешно:', data)
+      })
+      .catch(error => {
+          sendInfo(false);
+          console.error('Ошибка:', error)
+      });
 
-     */
+*/
+
 }
-
-
 

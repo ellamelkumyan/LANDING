@@ -198,7 +198,8 @@
     color: var(--text-primary);
 }
 
-.form_content_box {
+.form_content_box,
+.form_content_box_send {
     padding: var(--form-content-padding);
     font-family: "Montserrat", sans-serif;
 }
@@ -210,6 +211,64 @@
 
     margin-bottom: var(--form-input-padding);
 }
+
+/* Статус отправки сообщения */
+.form_info_send {
+    border: 1px solid var(--status-green);
+    border-radius: var(--input-radius);
+    background: rgba(51, 185, 96, 0.1);
+    padding: 24px;
+    display: flex;
+}
+
+.form_info_send_error.form_info_send {
+    border-color: var(--status-alert);
+    background: rgba(227, 34, 34, 0.1);
+}
+
+.form_info_send_left {
+    width: 80px;
+}
+
+.form_info_send_left span {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--status-green);
+    border-radius: var(--input-radius);
+}
+
+.form_info_send_error .form_info_send_left span {
+    background: var(--status-alert);
+}
+
+.form_info_send_left span i {
+    display: block;
+    width: inherit;
+    height: inherit;
+    background: url("./assets/send_ok.svg") center no-repeat;
+    background-size: 24px auto;
+}
+
+.form_info_send_title {
+    font-family: "Montserrat", sans-serif;
+    font-size: var(--text-h4);
+    line-height: var(--text-h4-line);
+    font-weight: 600;
+    color: var(--text-primary);
+    padding-bottom: 8px;
+}
+
+.form_info_send_description {
+    font-family: "Montserrat", sans-serif;
+    font-size: var(--text-S);
+    line-height: var(--text-S-line);
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
 
 /* Поля ввода */
 .form_input,

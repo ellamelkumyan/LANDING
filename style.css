@@ -130,6 +130,14 @@ body {
 	line-height: 18px;
 }
 
+.home__header-link:hover {
+	color: var(--primary-blue);
+}
+
+.home__header-link:active {
+	color: var(--primary-blue);
+}
+
 .home__header-logo-container {
 	display: flex;
 	gap: 7px;
@@ -544,6 +552,14 @@ body {
 	font-weight: 600;
 	color: var(--text-link);
 	white-space: nowrap;
+}
+
+.blue-link:hover {
+	color: var(--primary-pressed);
+}
+
+.blue-link:active {
+	color: var(--primary-pressed);
 }
 
 

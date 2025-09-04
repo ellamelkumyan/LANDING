@@ -7,18 +7,18 @@
   --radius-l: 16px;
   --radius-xl: 24px;
   --radius-xxl: 40px;
-  
+
   /* Компонентные радиусы */
   --card-radius: var(--radius-l);
   --block-radius: var(--radius-xl);
   --input-radius: var(--radius-m);
   --grid-radius: var(--radius-s);
-  
+
   /* Размеры карточек */
   --card-min-width-s: 312px;
   --card-min-width-m: 400px;
   --card-min-width-l: 520px;
-  
+
   /* Отступы */
   --layout-padding-top: 16px;
   --layout-padding-bottom: 24px;
@@ -26,20 +26,20 @@
   --content-gap: 16px;
   --block-gap: 24px;
   --grid-gap: 24px;
-  
+
   /* Формы */
   --form-height-L: 52px;
   --form-height-M: 44px;
   --form-height-S: 32px;
   --input-padding: 16px;
   --button-padding: 16px;
-  
+
   /* Таблицы */
   --cell-padding: 12px;
   --cell-input-padding: 12px;
   --td-min-height: 76px;
   --th-min-height: 48px;
-  
+
   /* Типография */
   --text-display: 96px;
   --text-h1: 36px;
@@ -62,7 +62,7 @@
   --text-XS-line: 16px;
   --text-XSS: 10px;
   --text-XSS-line: 12px;
-  
+
   /* ========== Цвета (Dark theme) ========== */
   /* Текст */
   --text-primary: #dcdee6;
@@ -73,24 +73,26 @@
   --text-invert: #131316;
   --text-fixed: #FFFFFF;
   --white-50: rgba(255, 255, 255, 0.5);
-  
+
   /* Фоны */
   --bg-light: #161616;
   --bg-normal: #131316;
   --bg-medium: #3d3f45;
   --bg-surface: #1d1d1d;
+  --bg-surface-70: rgba(29, 29, 29, 0.7);
+  --bg-surface-90: rgba(29, 29, 29, 0.9);
   --bg-inactive: #232428;
   --bg-invert: #ffffff;
   --overlay: rgba(19, 19, 22, 0.3);
   --shadow-preloader: rgba(19, 19, 22, 0.12);
   --alert-bg: rgba(227, 34, 34, 0.1);
   --warning-bg: rgba(236, 184, 2, 0.1);
-  
+
   /* Границы */
   --border-light: #3d3f45;
   --border-normal: #606269;
   --border-medium: #7a7d87;
-  
+
   /* Основные цвета */
   --primary-default: #7da6f7;
   /* --primary-hover: #9ebdf9; */
@@ -100,12 +102,26 @@
   --primary-on-default: #073281;
   --primary-blue: #2B6EF2;
   --primary-pressed: #0d53dd;
-  
+
   /* Статусы */
   --status-green: #33b960;
   --status-alert: #e32222;
   --status-yellow: #ecb802;
   --status-turquoise: #0ad3c5;
+
+  /* Отступы */
+  --all-top-bottom: 24px;
+  --all-left-right: 40px;
+
+  --header-top: 16px;
+  --headr-height: 58px;
+  --headr-padding: 24px;
+  --headr-left-right: 80px;
+  --headr-burger: none;
+
+  --title-top: 80px;
+
+  --title-text-margin: 24px;
 }
 
 /* ========== Планшеты (900px - 1280px) ========== */
@@ -117,7 +133,7 @@
     --padding-radius-s: 16px;
     --padding-radius-xs: 12px;
     --padding-radius-tile: 16px;
-    
+
     --text-display: 64px;
     --text-h1: 28px;
     --text-h1-line: 30px;
@@ -129,18 +145,32 @@
     --text-h4-line: 22px;
     --text-caption: 14px;
     --text-caption-line: 16px;
-    
+
     --card-min-width-s: 264px;
     --card-min-width-m: 320px;
     --card-min-width-l: 320px;
-    
+
     --form-height-L: 48px;
     --form-height-M: 40px;
-    
+
     --cell-padding: 8px;
     --cell-input-padding: 8px;
     --td-min-height: 64px;
     --th-min-height: 40px;
+
+    /* Отступы */
+    --all-top-bottom: 16px;
+    --all-left-right: 24px;
+
+    --header-top: 12px;
+    --headr-height: 64px;
+    --headr-padding: 12px;
+    --headr-left-right: 48px;
+    --headr-burger: inherit;
+
+    --title-top: 40px;
+
+    --title-text-margin: 24px;
   }
 }
 
@@ -153,7 +183,7 @@
     --padding-radius-s: 12px;
     --padding-radius-xs: 8px;
     --padding-radius-tile: 12px;
-    
+
     --text-display: 36px;
     --text-h1: 28px;
     --text-h1-line: 30px;
@@ -165,22 +195,36 @@
     --text-h4-line: 22px;
     --text-caption: 14px;
     --text-caption-line: 16px;
-    
+
     --card-min-width-s: 264px;
     --card-min-width-m: 320px;
     --card-min-width-l: 320px;
-    
+
     --layout-padding-top: 0;
     --layout-padding-bottom: 0;
     --layout-gap: 0;
-    
+
     --form-height-L: 48px;
     --form-height-M: 40px;
     --button-padding: 12px;
-    
+
     --cell-padding: 8px;
     --cell-input-padding: 8px;
     --td-min-height: 64px;
     --th-min-height: 40px;
+
+    /* Отступы */
+    --all-top-bottom: 12px;
+    --all-left-right: 16px;
+
+    --header-top: 8px;
+    --headr-height: 64px;
+    --headr-padding: 8px;
+    --headr-left-right: 32px;
+    --headr-burger: inherit;
+
+    --title-top: 24px;
+
+    --title-text-margin: 16px;
   }
 }

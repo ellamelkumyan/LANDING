@@ -1,3 +1,57 @@
+
+/* Сообщения на фотках */
+.tags {
+    position: relative;
+}
+
+.tags_box {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 12px 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.tag {
+    overflow: hidden;
+    animation: tag_show .7s linear 1 forwards;
+}
+
+.tag span {
+    min-height: 36px;
+    box-sizing: border-box;
+
+    background: linear-gradient(236.05deg, rgba(108, 200, 241, 0.5) -16.56%, rgba(120, 166, 255, 0.5) 14.44%, rgba(126, 150, 255, 0.5) 29.12%, rgba(136, 139, 255, 0.5) 45.9%, rgba(151, 140, 255, 0.5) 56.19%, rgba(185, 123, 255, 0.5) 87.71%);
+    backdrop-filter: blur(8px);
+
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    margin: 4px 0;
+
+    color: var(--text-primary);
+    font-family: "Montserrat", sans-serif;
+    font-size: var(--text-S);
+    line-height: var(--text-S-line);
+    font-weight: 600;
+}
+
+@keyframes tag_show {
+    0% {
+        max-height: 1px;
+    }
+    100% {
+        max-height: 100px;
+    }
+}
+
+
+/* Анимация блоков при скролле */
 .block {
     opacity: 0;
     transform: translateY(200px);
@@ -5,8 +59,8 @@
 }
 
 .block.visible {
-    opacity: 1; /* Делает блок видимым */
-    transform: translateY(0); /* Убирает сдвиг */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 

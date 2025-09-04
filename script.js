@@ -8,7 +8,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const originalText = document.getElementById('originalText');
     const newText = document.getElementById('newText');
 
+    // blocks
     const blocks = document.querySelectorAll('.block');
+
+    // tags
+    const tagsLugage = document.getElementById('tags_lugage');
+    const tagsSport = document.getElementById('tags_sport');
+    const tagsMice = document.getElementById('tags_mice');
+    const tagsHealth = document.getElementById('tags_health');
+    const tagsFestival = document.getElementById('tags_festival');
+    const tagsExcursion = document.getElementById('tags_excursion');
 
     let isScrolled = false;
 
@@ -98,12 +107,113 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
+    // tags
+    function showTags(idGroup, group, index = 0) {
+
+        const obj= {
+            lugage: [
+                "Покупка авиа и ж/д билетов",
+                "Трансферы и аренда авто всех классов — эконом, бизнес, VIP",
+                "Бронирование",
+                "Страховка",
+                "Бронирование VIP-залов аэропортов",
+                "Полный пакет документов по запросу",
+                "Дополнительные сервисы",
+            ],
+            sport: [
+                "Удобное размещение и качественные спортивные площадки",
+                "Полноценное питание и бытовые удобства",
+                "Дополнительные культурно-досуговые программы",
+                "Tранспортировка на соревнования и тренировки",
+            ],
+            mice: [
+              'Бронирование объекта размещения',
+              'Организация питания',
+              'Транспортная поддержка (авиа и ж/д билеты, трансферы)',
+              'Страхование',
+              'Сопровождение мероприятия',
+              'Предоставление конференц-возможностей',
+              'Экскурсионное обслуживание',
+              'Дополнительные сервисы',
+            ],
+            health: [
+              'Профессиональные заболевания',
+              'Заболевания нервной системы',
+              'Заболевания мочеполовых путей',
+              'Заболевания пищеварительной системы',
+              'Нарушения обмена веществ',
+              'Заболевания сердечно-сосудистой системы',
+              'Заболевания опорно-двигательного аппарата',
+            ],
+            festival: [
+              'Подготовка и проведение',
+              'Бронирование транспорта',
+              'Размещение гостей',
+              'Обеспечение питания',
+              'Оформление виз и страховок',
+            ],
+            excursion: [
+              'Коломенское',
+              'Московский Кремль',
+              'Спас на Крови ',
+              'Зоопарк',
+              'Старый Арбат',
+              'Домик Петра',
+              'Московское метро',
+              'Третьяковская галерея',
+              'Исаакиевский Собор',
+              'Петропавловская крепость',
+              'Кунсткамера',
+            ]
+        };
+
+        const tags = [...obj[group]];
+
+        const listTag = document.createElement('div');
+        const listTagSpan = document.createElement('span');
+
+        listTag.classList.add('tag');
+        listTagSpan.innerText = tags[index];
+
+        listTag.appendChild(listTagSpan);
+        idGroup.appendChild(listTag);
+
+        const Tags = idGroup.querySelectorAll('.tag');
+        const allTag = tags.length;
+        const show = allTag > 5 ? 5 : allTag;
+
+        if(Tags.length > show) {
+            const elementsArray = [...Tags];
+
+            elementsArray.reverse().forEach((tag, index) => {
+                if(index >= show) tag.remove();
+            })
+        }
+
+        setTimeout(() => {
+            let nextIndex = index + 1;
+            nextIndex = tags.length <= nextIndex ? 0 : nextIndex;
+
+            showTags(idGroup, group, nextIndex);
+        }, 2000)
+    }
+
     // Start
+    showTags(tagsLugage, 'lugage');
+    showTags(tagsSport, 'sport');
+    showTags(tagsMice, 'mice');
+    showTags(tagsHealth, 'health');
+    showTags(tagsFestival, 'festival');
+    showTags(tagsExcursion, 'excursion');
+
     handleScroll();
 
     // Слушаем событие скролла
     window.addEventListener('scroll', handleScroll);
 
+
+
+    // ----------
 
     // Calendar
     const { Calendar } = window.VanillaCalendarPro;
@@ -166,6 +276,19 @@ document.addEventListener('DOMContentLoaded', function() {
     calendar.init();
     // END. Calendar
 });
+
+
+// БУРГЕР
+function showNav() {
+    header.classList.toggle('show-nav');
+}
+
+document.addEventListener('mouseup', (event) => {
+    // Закрытие БУРГЕР
+    if (!header.contains(event.target)) header.classList.remove('show-nav');
+
+});
+
 
 // ФОРМЫ
 const documentBody = document.body

@@ -158,6 +158,10 @@
     zoom: 1.2;
 }
 
+.form_box_closed:active:before {
+    zoom: 1.4;
+}
+
 /* content */
 .form_content {
     padding: var(--form-content-padding) 0;

@@ -162,7 +162,7 @@
     display: block;
     width: 24px;
     height: 24px;
-    background: url("./assets/close.svg") center no-repeat;
+    background: url("../assets/close.svg") center no-repeat;
     zoom: 1;
     transition: zoom .3s ease-in-out;
 }
@@ -265,7 +265,7 @@
     display: block;
     width: inherit;
     height: inherit;
-    background: url("./assets/send_ok.svg") center no-repeat;
+    background: url("../assets/send_ok.svg") center no-repeat;
     background-size: 24px auto;
 }
 
@@ -491,7 +491,7 @@
 /* Лупа */
 .form_icon_magnifying_glass input,
 .form_icon_magnifying_glass .form_input_placeholder {
-    background-image: url("./assets/magnifying_glass.svg");
+    background-image: url("../assets/magnifying_glass.svg");
     background-position: var(--form-input-padding) center;
     background-repeat: no-repeat;
     background-size: 20px auto;
@@ -521,7 +521,7 @@
     z-index: 101;
     width: 20px;
     height: 20px;
-    background-image: url("./assets/arrow_select.svg");
+    background-image: url("../assets/arrow_select.svg");
     transition: transform .4s ease-in-out;
     transform: rotateX(180deg);
     pointer-events: none;
@@ -544,7 +544,7 @@
     z-index: 101;
     width: 20px;
     height: 20px;
-    background-image: url("./assets/calendar.svg");
+    background-image: url("../assets/calendar.svg");
     pointer-events: none;
 }
 
@@ -589,7 +589,7 @@
     display: flex;
     width: 20px;
     height: 20px;
-    background: url("./assets/close.svg") center no-repeat;
+    background: url("../assets/close.svg") center no-repeat;
     background-size: 15px auto;
     margin-left: 5px;
     cursor: pointer;
@@ -670,7 +670,7 @@ input.is-show ~ .form_input_choice {
 }
 
 .form_input_choice_selected.selected i {
-    background: url("./assets/check.svg") center no-repeat;
+    background: url("../assets/check.svg") center no-repeat;
     background-size: 19px auto;
 }
 
@@ -761,7 +761,7 @@ input.is-show ~ .form_input_choice {
     display: block;
     width: 24px;
     height: 24px;
-    background: url("./assets/check.svg") center no-repeat;
+    background: url("../assets/check.svg") center no-repeat;
     background-size: 19px auto;
 }
 

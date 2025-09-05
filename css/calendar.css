@@ -652,7 +652,7 @@ button[data-vc-week-day] {
 }
 
 [data-vc-theme=alean] .vc-arrow:before {
-    background-image: url("./assets/calendar-arrow.svg");
+    background-image: url("../assets/calendar-arrow.svg");
     content: var(--tw-content)
 }
 

@@ -171,7 +171,7 @@ body {
 	display: block;
 	width: 24px;
 	height: 24px;
-	background: url("./assets/burger.svg") center no-repeat;
+	background: url("../assets/burger.svg") center no-repeat;
 	background-size: 24px auto;
 	zoom: 1;
 	transition: zoom .3s ease-in-out;
@@ -297,7 +297,7 @@ body {
 .home__img-heart.scrolled {
 	left: 27%;
 
-	background: url("./assets/partnership.png");
+	background: url("../assets/partnership.png");
 	background-size: cover;
 
 	transform: translate(-50%, -50%) scale(0.8);
@@ -593,27 +593,27 @@ body {
 }
 
 .services_img_lugage {
-	background-image: url("./assets/lugage2.png");
+	background-image: url("../assets/lugage2.png");
 }
 
 .services_img_mice {
-	background-image: url("./assets/mice.png");
+	background-image: url("../assets/mice.png");
 }
 
 .services_img_sport {
-	background-image: url("./assets/sport.png");
+	background-image: url("../assets/sport.png");
 }
 
 .services_img_health {
-	background-image: url("./assets/health.png");
+	background-image: url("../assets/health.png");
 }
 
 .services_img_festival {
-	background-image: url("./assets/festival.png");
+	background-image: url("../assets/festival.png");
 }
 
 .services_img_excursion {
-	background-image: url("./assets/excursion.png");
+	background-image: url("../assets/excursion.png");
 }
 
 .services__text-wrapper {
@@ -773,7 +773,7 @@ body {
 	right: 0;
 	display: block;
 	content: '';
-	background: url("./assets/macbook.png") left center no-repeat;
+	background: url("../assets/macbook.png") left center no-repeat;
 	background-size: auto 100%;
 }
 
@@ -1222,7 +1222,7 @@ body {
 }
 
 .footer {
-	background-image: url(./assets/foooter.png);
+	background-image: url(../assets/foooter.png);
 	background-size: cover;
     background-position: top;
     background-repeat: no-repeat;

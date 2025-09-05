@@ -678,6 +678,22 @@ body {
 	color: var(--primary-pressed);
 }
 
+/* Стрелочка */
+.blue-link svg {
+	fill: var(--text-link);
+	stroke: var(--text-link);
+}
+
+.blue-link:hover svg {
+	fill: var(--primary-pressed);
+	stroke: var(--primary-pressed);
+}
+
+.blue-link:active svg {
+	fill: var(--primary-pressed);
+	stroke: var(--primary-pressed);
+}
+
 
 .blue-button {
 	background-color: var(--primary-blue);
@@ -706,6 +722,12 @@ body {
 .clients__link-wrapper,
 .clients__item-up-button-wrapper {
 	padding: var(--clients-indent) var(--clients-indent) 0 var(--clients-indent);
+}
+
+.clients__link_button {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
 }
 
 

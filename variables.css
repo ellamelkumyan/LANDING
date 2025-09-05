@@ -109,6 +109,14 @@
   --status-yellow: #ecb802;
   --status-turquoise: #0ad3c5;
 
+  /* Градиенты */
+  --linear-gradient-fon: linear-gradient(236.05deg, rgba(108, 200, 241, 0.2) -16.56%, rgba(120, 166, 255, 0.2) 14.44%, rgba(126, 150, 255, 0.2) 29.12%, rgba(136, 139, 255, 0.2) 45.9%, rgba(151, 140, 255, 0.2) 56.19%, rgba(185, 123, 255, 0.2) 87.71%);
+  --linear-gradient-fon-2: linear-gradient(224.87deg, #6CC8F1 0%, #78A6FF 13.46%, #7E96FF 37.98%, #888BFF 56.25%, #978CFF 82.21%, #B97BFF 100%);
+  --linear-gradient-fon-3: linear-gradient(217.82deg, rgba(108, 200, 241, 0.5) 8.81%, rgba(120, 166, 255, 0.5) 28.13%, rgba(126, 150, 255, 0.5) 37.29%, rgba(136, 139, 255, 0.5) 47.75%, rgba(151, 140, 255, 0.5) 54.16%, rgba(185, 123, 255, 0.5) 73.81%);
+  --linear-gradient-fon-4: linear-gradient(224.87deg, #6CC8F1 0%, #78A6FF 13.46%, #7E96FF 37.98%, #888BFF 56.25%, #978CFF 82.21%, #B97BFF 100%) border-box;
+  --linear-gradient-fon-5: linear-gradient(#1F283A, #1F283A) padding-box;
+  --linear-gradient-fon-6: linear-gradient(217.82deg, rgba(108, 200, 241, 0.3) 8.81%, rgba(120, 166, 255, 0.3) 28.13%, rgba(126, 150, 255, 0.3) 37.29%, rgba(136, 139, 255, 0.3) 47.75%, rgba(151, 140, 255, 0.3) 54.16%, rgba(185, 123, 255, 0.3) 73.81%);
+
   /* Отступы */
   --all-top-bottom: 24px;
   --all-left-right: 40px;
@@ -122,6 +130,38 @@
   --title-top: 80px;
 
   --title-text-margin: 24px;
+
+  --company-margin: 80px;
+  --company-indent: 48px;
+  --company-indent-2: 24px;
+  --company-block: 24px 24px 40px 24px;
+  --company-logo: 56px;
+  --company-logo-bottom: 24px;
+  --company-item-left: 33%;
+
+  --services-indent: 80px;
+  --services-text-padding: 24px;
+  --services-box: 50%;
+
+  --clients-margin: 80px;
+  --clients-indent: 40px;
+  --clients-indent-2: 24px;
+  --clients-box: 50%;
+
+  --agency-indent: 48px;
+  --agency-indent-2: 24px;
+  --agency-item-left: 33%;
+  --agency-block: 24px 24px 40px 24px;
+  --agency-logo: 56px;
+  --agency-top: 0;
+
+  --start-height: 712px;
+  --start-indent: 24px;
+  --start-padding: 24px 24px 40px 24px;
+  --start-padding-top: 80px;
+
+  --questions-indent: 24px;
+  --questions-padding: 24px 24px 40px 24px;
 }
 
 /* ========== Планшеты (900px - 1280px) ========== */
@@ -171,6 +211,36 @@
     --title-top: 40px;
 
     --title-text-margin: 24px;
+
+    --company-margin: 40px;
+    --company-indent: 32px;
+    --company-indent-2: 16px;
+    --company-block: 16px 16px 24px 16px;
+    --company-logo: 48px;
+    --company-logo-bottom: 16px;
+    --company-item-left: 33%;
+
+    --services-indent: 40px;
+    --services-text-padding: 16px;
+
+    --clients-margin: 40px;
+    --clients-indent: 24px;
+    --clients-indent-2: 16px;
+
+    --agency-indent: 32px;
+    --agency-indent-2: 16px;
+    --agency-item-left: 33%;
+    --agency-block: 16px 16px 24px 16px;
+    --agency-logo: 48px;
+    --agency-top: 0;
+
+    --start-height: 654px;
+    --start-indent: 16px;
+    --start-padding: 16px 16px 24px 16px;
+    --start-padding-top: 40px;
+
+    --questions-indent: 16px;
+    --questions-padding: 16px 16px 24px 16px;
   }
 }
 
@@ -226,5 +296,44 @@
     --title-top: 24px;
 
     --title-text-margin: 16px;
+
+    --company-margin: 24px;
+    --company-indent: 0;
+    --company-indent-2: 12px;
+    --company-block: 12px 12px 16px 12px;
+    --company-logo: 40px;
+    --company-logo-bottom: 12px;
+    --company-item-left: 100%;
+
+    --services-indent: 24px;
+    --services-text-padding: 12px;
+
+    --clients-margin: 24px;
+    --clients-indent: 16px;
+    --clients-indent-2: 12px;
+    --clients-box: 100%;
+
+    --agency-indent: 0;
+    --agency-indent-2: 12px;
+    --agency-item-left: 100%;
+    --agency-block: 12px 12px 16px 12px;
+    --agency-logo: 48px;
+    --agency-top: 36px;
+
+    --start-height: 550px;
+    --start-indent: 12px;
+    --start-padding: 12px 12px 16px 12px;
+    --start-padding-top: 24px;
+
+    --questions-indent: 12px;
+    --questions-padding: 12px 12px 16px 12px;
+  }
+}
+
+/* ========== Телефоны (< 600px) ========== */
+@media (max-width: 599px) {
+  :root {
+    --services-box: 100%;
+    --start-height: inherit;
   }
 }

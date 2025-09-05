@@ -3,10 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Алеан Travel</title>
 	<link rel="stylesheet" href="./variables.css">
 	<link rel="stylesheet" href="./style.css">
 	<link rel="stylesheet" href="./reset.css">
+
+	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<meta name="apple-mobile-web-app-title" content="Алеан Travel" />
+	<link rel="manifest" href="/site.webmanifest" />
 
 	<link rel="preload" href="./forms.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<link rel="preload" href="./calendar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -306,7 +313,7 @@
 				</svg>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 429 402">
 					<clipPath id="svgAleanPath2">
-						<path d="M99.1147 265.528C118.487 268.76 136.024 269.523 154.681 284.409C193.359 315.27 185.52 370.805 247.788 395.786C301.022 417.142 347.737 378.768 364.129 351.49C396.085 298.315 419.905 220.722 419.905 138.298C419.905 59.0363 393.798 19.0101 341.604 3.96042C289.409 -11.0892 183.753 18.1259 94.2764 68.314C22.9083 108.345 -12.9794 150.152 4.65794 205.312C18.2621 247.859 64.4978 259.753 99.1147 265.528Z" fill="url(#paint0_linear_4138_31415)"/>
+						<path d="M99.1147 265.528C118.487 268.76 136.024 269.523 154.681 284.409C193.359 315.27 185.52 370.805 247.788 395.786C301.022 417.142 347.737 378.768 364.129 351.49C396.085 298.315 419.905 220.722 419.905 138.298C419.905 59.0363 393.798 19.0101 341.604 3.96042C289.409 -11.0892 183.753 18.1259 94.2764 68.314C22.9083 108.345 -12.9794 150.152 4.65794 205.312C18.2621 247.859 64.4978 259.753 99.1147 265.528Z"/>
 					</clipPath>
 				</svg>
 			</div>
@@ -323,19 +330,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="intro">
-        <div class="intro__container">
-            <div class="intro__wrapper">
-                <img class="intro__img" src="assets/intro-img.png" alt="Интро">
-                <div class="intro__text-wrapper">
-					<div class="intro__text">Добро пожаловать в Алеан!</div>
-                    <div class="intro__text">Наша компания — крупнейший российский туроператор, оказывающий услуги: групповые туры, Business travel, MICE — для корпоративных клиентов и турагентств.</div>
-                    <div class="intro__text">Мы обеспечим высокий уровень сервиса и индивидуальный подход к каждому клиенту.</div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
 	<div class="company block" id="company">
 		<div class="company__title title">О компании</div>
@@ -542,7 +536,7 @@
 						<div class="services__item-text-up description">Мы организовываем увлекательные путешествия для детей, уделяя особое внимание безопасности, качественному образованию и положительным эмоциям. Предлагаем туры в Москву, Санкт-Петербург и другие города с посещением главных достопримечательностей в сопровождении опытных педагогов-гидов. Организовываем комфортный транспорт и питание.</div>
 					</div>
 					<a class="services__link-wrapper link-wrapper link" href="https://www.alean.ru/page/advanced_services/?label=4" target="_blank">
-						<div class="blue-link link" href="">Полный перечень групповых экскурсий </div>
+						<div class="blue-link link services_link" href="">Полный перечень групповых экскурсий </div>
 						<img class="link-arrow" src="assets/arrow.svg" alt="">
 					</a>
 				</div>
@@ -556,9 +550,11 @@
 			<div class="clients__items-wrapper">
 				<div class="clients__item block">
 					<div class="clients__item-left">
-						<div class="clients__item-title item-title">Решения</div>
 						<div class="clients__text-wrapper">
-							<div class="clients__item-subtitle item-subtitle">Личный кабинет корпоративного клиента</div>
+							<div class="clients-title">
+								<div class="clients__item-title item-title">Решения</div>
+								<div class="clients__item-subtitle item-subtitle">Личный кабинет корпоративного клиента</div>
+							</div>
 							<div class="clients__item-text description">Личный кабинет корпоративного клиента — удобная платформа для самостоятельного поиска, бронирования туров и управления заявками онлайн. Интерфейс кабинета интуитивно понятный, не требует никаких предварительных интеграций с вашими учетными системами, сразу готов к работе.</div>
 							<div class="clients__item-text description">При этом вам также остается доступна возможность заказать любые нестандартные услуги посредством почты или телефона — заказы по ним вы увидите в своем личном кабинете.</div>
 						</div>
@@ -570,14 +566,13 @@
 							<img class="link-arrow" src="assets/arrow.svg" alt="">
 						</div>
 					</div>
-					<div class="clients__item-right">
-						<img class="clients__img-screen" src="assets/screen.png" alt="">
-						<img class="clients__img-underscreen" src="assets/under-screen.png" alt="">
-					</div>
+					<div class="clients__item-right"></div>
 				</div>
 				<div class="clients__item-down block">
-					<div class="clients__item-title item-title">Решения</div>
-					<div class="clients__item-subtitle item-subtitle">Автоматизированная система обработки обращений</div>
+					<div class="clients-title">
+						<div class="clients__item-title item-title">Решения</div>
+						<div class="clients__item-subtitle item-subtitle">Автоматизированная система обработки обращений</div>
+					</div>
 					<div class="clients__item-text-wrapper">
 						<div class="clients__item-text description">Такой подход идеально подойдет организациям, часто сталкивающимся с нестандартными запросами, особенно при групповом бронировании. Для тех, кто не хочет заниматься длительными техническими интеграциями или делиться внутренними данными, этот подход весьма востребован. </div>
 						<div class="clients__item-description">Классический сценарий обработки заявок выглядит следующим образом:</div>

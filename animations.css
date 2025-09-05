@@ -18,7 +18,7 @@
 
 .tag {
     overflow: hidden;
-    animation: tag_show .7s linear 1 forwards;
+    animation: tag_show .6s ease-in-out 1 forwards;
 }
 
 .tag span {
@@ -41,6 +41,12 @@
     font-weight: 600;
 }
 
+@media (max-width: 1280px) {
+    .tag span {
+        min-height: 34px;
+    }
+}
+
 @keyframes tag_show {
     0% {
         max-height: 1px;
@@ -55,7 +61,7 @@
 .block {
     opacity: 0;
     transform: translateY(200px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
 }
 
 .block.visible {
@@ -122,11 +128,11 @@
 }
 
 .planer_3.planer > i {
-    bottom: -916px;
-    right: -1025px;
+    bottom: -873px;
+    right: -980px;
 
-    width: 1500px;
-    height: 1500px;
+    width: 1450px;
+    height: 1450px;
 
     animation-direction: reverse;
 }

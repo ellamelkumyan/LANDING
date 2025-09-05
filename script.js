@@ -21,13 +21,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let isScrolled = false;
 
-    // Функция для обработки скролла
+    let timerId1, timerId2;
+
+      // Функция для обработки скролла
     function handleScroll() {
         const scrollPosition = window.scrollY;
         //const homeHeight = homeSection.offsetHeight;
 
         // Активируем анимацию при скролле более 50px
         if (scrollPosition > 50 && !isScrolled) {
+            clearTimeout(timerId1);
+            clearTimeout(timerId2);
+
             isScrolled = true;
 
             // Применяем изменения
@@ -41,13 +46,16 @@ document.addEventListener('DOMContentLoaded', function() {
             originalText.style.transform = 'translateX(-30px)';
 
             // Анимация текста - fadein нового с задержкой
-            setTimeout(() => {
+            timerId1 = setTimeout(() => {
                 newText.classList.add('visible');
             }, 400);
         }
 
         // Возвращаем обратно при скролле вверх
         else if (scrollPosition <= 50 && isScrolled) {
+            clearTimeout(timerId1);
+            clearTimeout(timerId2);
+
             isScrolled = false;
 
             // Убираем изменения
@@ -60,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
             newText.classList.remove('visible');
 
             // Анимация текста - fadein исходного с задержкой
-            setTimeout(() => {
+            timerId2 = setTimeout(() => {
                 originalText.style.opacity = '1';
                 originalText.style.transform = 'translateX(0)';
             }, 400);
@@ -190,12 +198,14 @@ document.addEventListener('DOMContentLoaded', function() {
             })
         }
 
+        const randomTimeout = (Math.floor(Math.random() * (3 - 1 + 1)) + 1) * 1000;
+
         setTimeout(() => {
             let nextIndex = index + 1;
             nextIndex = tags.length <= nextIndex ? 0 : nextIndex;
 
             showTags(idGroup, group, nextIndex);
-        }, 2000)
+        }, randomTimeout);
     }
 
     // Start

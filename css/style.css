@@ -16,6 +16,12 @@ body {
 	-webkit-text-size-adjust: none;
 }
 
+html,
+body {
+	width: 100%;
+	height: 100vh;
+}
+
 h1, h2, h3, h4, p {
 	padding: 0;
 	margin: 0;
@@ -308,6 +314,9 @@ h1, h2, h3, h4, p {
 	clip-path: url(#svgAleanPath);
 	background: var(--linear-gradient-fon-3);
 	backdrop-filter: blur(4px);
+	overflow: hidden;
+
+	border-radius: 47% 27% 39% 65%;
 
 	pointer-events: none;
 
@@ -316,9 +325,7 @@ h1, h2, h3, h4, p {
 
 .home__img-heart.scrolled {
 	left: 27%;
-
-	background: url("../assets/partnership.png");
-	background-size: cover;
+	background: url("../assets/partnership.png") center no-repeat;
 
 	transform: translate(-50%, -50%) scale(0.8);
 }
@@ -1350,6 +1357,7 @@ h1, h2, h3, h4, p {
 	clip-path: url(#svgAleanPath);
 	background: var(--linear-gradient-fon-6);
 	backdrop-filter: blur(4px);
+	border-radius: 47% 27% 39% 65%;
 }
 
 .footer__img-heart:before {

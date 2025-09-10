@@ -371,6 +371,7 @@ function isSelected(selected, start, formInput, arrSelected) {
 
     if(start && selected !== -1) {
         input.classList.add('is-value');
+        input.setSelectionRange(0, 0);
         input.value = arrSelected[selected].value;
     }
 
@@ -384,6 +385,7 @@ function isSelected(selected, start, formInput, arrSelected) {
 
         listItem.addEventListener('click', function () {
             input.value = el.value;
+            input.setSelectionRange(0, 0);
             input.classList.add('is-active', 'is-value');
             isSelected(index, start, formInput, arrSelected);
             formInput.classList.remove('form-error');

@@ -1583,7 +1583,7 @@ h1, h2, h3, h4, p {
 	}
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
 
 	.blue-button {
 		padding: 14px;

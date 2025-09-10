@@ -2,6 +2,7 @@
 /* Сообщения на фотках */
 .tags {
     position: relative;
+    overflow: hidden;
 }
 
 .tags_box {
@@ -39,6 +40,13 @@
     font-size: var(--text-S);
     line-height: var(--text-S-line);
     font-weight: 600;
+}
+
+@media (max-width: 599px) {
+    .tag span {
+        font-size: var(--text-XSS);
+        line-height: var(--text-XSS-line);
+    }
 }
 
 @media (max-width: 1280px) {

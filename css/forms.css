@@ -12,17 +12,33 @@
     --form-input-padding: 16px;
     --form-input-margin: 24px;
     --form-input-margin-bottom: 40px;
+
+    --form_info-icon: 56px;
+    --form_info-padding: 16px;
+    --form_info-padding-2: 24px;
+}
+
+@media (max-width: 1280px) and (min-width: 900px) {
+    --form_info-icon: 48px;
+    --form_info-padding-2: 12px;
 }
 
 @media (max-width: 899px) {
     :root {
         --form-box-width: 520px;
+        --form-content-padding: 24px;
+
+        --form_info-icon: 40px;
+        --form_info-padding-2: 8px;
     }
 }
 
 @media (max-width: 599px) {
     :root {
         --form-box-width: 100%;
+        --form-content-padding: 16px;
+
+        --form_info-padding: 12px;
     }
 }
 
@@ -36,21 +52,35 @@
 }
 
 /* calendar */
+.form_calendar,
+.form_calendar {
+    width: 620px;
+}
+
+@media (max-width: 660px) {
+    .form_calendar {
+        width: 310px
+    }
+}
+
+@media (max-width: 343px) {
+    .form_calendar {
+        width: 287px
+    }
+}
+
 .right .form_calendar {
     right: var(--form-content-padding);
-    width: 620px;
 }
 
 .left .form_calendar {
     left: var(--form-content-padding);
-    width: 620px;
 }
 
 .form_calendar_content {
     width: 280px;
     flex-shrink: 0;
 }
-
 
 /* FORM */
 .form {
@@ -120,6 +150,7 @@
     background: var(--bg-surface);
 
     overflow: auto;
+    -webkit-overflow-scrolling:touch;
 
     /* Скрываем scrollbar для IE, Edge и Firefox */
     -ms-overflow-style: none;  /* IE и Edge */
@@ -234,7 +265,7 @@
     border: 1px solid var(--status-green);
     border-radius: var(--input-radius);
     background: rgba(51, 185, 96, 0.1);
-    padding: 24px;
+    padding: var(--form_info-padding-2);
     display: flex;
 }
 
@@ -244,12 +275,25 @@
 }
 
 .form_info_send_left {
-    width: 80px;
+    width: var(--form_info-icon);
+    padding-right: var(--form_info-padding-2);
+}
+
+@media (max-width: 599px) {
+    .form_info_send_left {
+        width: 100%;
+        padding-right: 0;
+        padding-bottom: var(--form_info-padding);
+    }
+
+    .form_info_send {
+        flex-direction: column;
+    }
 }
 
 .form_info_send_left span {
-    width: 56px;
-    height: 56px;
+    width: var(--form_info-icon);
+    height: var(--form_info-icon);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -614,6 +658,7 @@
     opacity: 0;
 
     overflow: auto;
+    -webkit-overflow-scrolling:touch;
 
     transition: max-height .3s ease-in-out, .3s opacity 0s ease-in-out;
 }

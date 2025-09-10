@@ -147,6 +147,7 @@
   --clients-indent: 40px;
   --clients-indent-2: 24px;
   --clients-box: 50%;
+  --clients-logo: 56px;
 
   --agency-indent: 48px;
   --agency-indent-2: 24px;
@@ -160,8 +161,14 @@
   --start-padding: 24px 24px 40px 24px;
   --start-padding-top: 80px;
 
+  --card-logo: 56px;
+  --card-indent: 24px;
+
+  --questions-logo: 56px;
   --questions-indent: 24px;
   --questions-padding: 24px 24px 40px 24px;
+
+  --footer-logo: 56px;
 }
 
 /* ========== Планшеты (900px - 1280px) ========== */
@@ -226,6 +233,7 @@
     --clients-margin: 40px;
     --clients-indent: 24px;
     --clients-indent-2: 16px;
+    --clients-logo: 48px;
 
     --agency-indent: 32px;
     --agency-indent-2: 16px;
@@ -239,8 +247,14 @@
     --start-padding: 16px 16px 24px 16px;
     --start-padding-top: 40px;
 
+    --card-logo: 48px;
+    --card-indent: 16px;
+
+    --questions-logo: 48px;
     --questions-indent: 16px;
     --questions-padding: 16px 16px 24px 16px;
+
+    --footer-logo: 48px;
   }
 }
 
@@ -312,12 +326,13 @@
     --clients-indent: 16px;
     --clients-indent-2: 12px;
     --clients-box: 100%;
+    --clients-logo: 40px;
 
     --agency-indent: 0;
     --agency-indent-2: 12px;
     --agency-item-left: 100%;
     --agency-block: 12px 12px 16px 12px;
-    --agency-logo: 48px;
+    --agency-logo: 40px;
     --agency-top: 36px;
 
     --start-height: 550px;
@@ -325,8 +340,14 @@
     --start-padding: 12px 12px 16px 12px;
     --start-padding-top: 24px;
 
+    --card-logo: 40px;
+    --card-indent: 12px;
+
+    --questions-logo: 40px;
     --questions-indent: 12px;
     --questions-padding: 12px 12px 16px 12px;
+
+    --footer-logo: 40px;
   }
 }
 

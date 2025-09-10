@@ -239,9 +239,15 @@
 
 [data-vc=week] {
     display: grid;
-    grid-template-columns:repeat(7, 1fr);
+    grid-template-columns:repeat(7, 40px);
     justify-items: center;
     margin-bottom: .5rem
+}
+
+@media (max-width: 343px) {
+    [data-vc=week] {
+        grid-template-columns:repeat(7, 36px);
+    }
 }
 
 [data-vc-week-day] {
@@ -267,9 +273,15 @@ button[data-vc-week-day] {
     align-items: center;
     display: grid;
     flex-grow: 1;
-    grid-template-columns:repeat(7, 1fr);
+    grid-template-columns:repeat(7, 40px);
     justify-items: center;
     pointer-events: none
+}
+
+@media (max-width: 343px) {
+    [data-vc=dates] {
+        grid-template-columns:repeat(7, 36px);
+    }
 }
 
 [data-vc=dates][data-vc-dates-disabled] [data-vc-date-btn] {
@@ -285,6 +297,13 @@ button[data-vc-week-day] {
     position: relative;
     width: 40px;
     height: 40px;
+}
+
+@media (max-width: 343px) {
+    [data-vc-date] {
+        width: 36px;
+        height: 36px;
+    }
 }
 
 [data-vc-date]:not(:has([data-vc-date-btn])), [data-vc-date][data-vc-date-disabled], [data-vc-date][data-vc-date-disabled] [data-vc-date-btn] {
@@ -673,7 +692,7 @@ button[data-vc-week-day] {
 
 /* !!! disabled */
 [data-vc-theme=alean] .vc-month:disabled, [data-vc-theme=alean] .vc-year:disabled {
-    color: #F0F
+    color: var(--text-inactive);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -690,7 +709,8 @@ button[data-vc-week-day] {
 
 /* !!! disabled */
 [data-vc-theme=alean] .vc-months__month:disabled, [data-vc-theme=alean] .vc-years__year:disabled {
-    color: #F0F
+    color: var(--text-inactive);
+    border-color: var(--text-inactive);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -702,7 +722,7 @@ button[data-vc-week-day] {
 
     /* !!! disabled */
     [data-vc-theme=alean] .vc-months__month:hover:disabled, [data-vc-theme=alean] .vc-years__year:hover:disabled {
-        color: #F0F
+        color: var(--text-inactive);
     }
 }
 

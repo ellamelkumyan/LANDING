@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
               'Спас на Крови ',
               'Зоопарк',
               'Старый Арбат',
-              'Домик Петра',
+              'Домик Петра I',
               'Московское метро',
               'Третьяковская галерея',
               'Исаакиевский Собор',
@@ -174,6 +174,8 @@ document.addEventListener('DOMContentLoaded', function() {
               'Кунсткамера',
             ]
         };
+
+        const width = window.innerWidth;
 
         const tags = [...obj[group]];
 
@@ -188,7 +190,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const Tags = idGroup.querySelectorAll('.tag');
         const allTag = tags.length;
-        const show = allTag > 5 ? 5 : allTag;
+        const tagsShow = width > 600 ? 5 : 3
+        const show = allTag > tagsShow ? tagsShow : allTag;
 
         if(Tags.length > show) {
             const elementsArray = [...Tags];

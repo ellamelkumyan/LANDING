@@ -353,12 +353,12 @@ const formServices= document.getElementById('form_services');
 const formServicesTag= document.getElementById('form_tag');
 let allServices = [
     {selected: false, value: 'авиабилеты'},
-    {selected: false, value: 'жд билеты'},
+    {selected: false, value: 'ж/д билеты'},
     {selected: false, value: 'отель'},
     {selected: false, value: 'аэроэкспресс'},
     {selected: false, value: 'автобусные билеты'},
     {selected: false, value: 'трансфер'},
-    {selected: false, value: 'VIP зал'},
+    {selected: false, value: 'VIP-зал'},
     {selected: false, value: 'страховка'}
 ]
 
